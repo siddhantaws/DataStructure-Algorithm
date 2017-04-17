@@ -5,7 +5,10 @@
   <packaging>jar</packaging>
   <name>DataStructure-Algorithm</name>
   <version>1.0</version>
-  
+  <modules>
+		<module>../Algorithm</module>
+		
+	</modules>
  
   <build>
     <plugins>
