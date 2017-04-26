@@ -17,7 +17,7 @@ public class NumberMultipleOfThree
 	}
 	private boolean isMultipleOf3(int num)
 	{
-		int odd_Count =0;
+		int odd_Count =0;//added comments
 		int even_Count =0;
 		num = num<  0 ? num*-1 : num ;
 		if(num ==0 )
