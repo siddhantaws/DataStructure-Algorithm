@@ -10,7 +10,7 @@ package com.wellsfargo.algo.mathematics;
 public class MultiplyWith_7 {
 
     public static void main(String[] args) {
-        System.out.println(new MultiplyWith_7().multiplyWith7(20));
+        System.out.println(new MultiplyWith_7().multiplyWith7(80));
     }
     private long multiplyWith7(int num)
     {
