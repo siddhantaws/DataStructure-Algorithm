@@ -20,7 +20,6 @@
 	<module>dynamic-programming</module>
 	<module>geometric-algorithm</module>
 	<module>greedy-algorithm</module>
-	<module>mathematical-algorithm</module>
 	<module>pattern-searching</module>
 	<module>randomized-algorithm</module>
 	<module>searching-sorting</module>
