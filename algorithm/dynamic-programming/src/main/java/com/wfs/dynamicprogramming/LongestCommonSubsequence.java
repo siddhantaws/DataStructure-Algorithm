@@ -2,8 +2,8 @@ package com.wfs.dynamicprogramming;
 
 /**
  * Created by Suryasnata on 5/11/2017.
- * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
- * LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4.
+ * LCS for input Sequences ABCDGH and AEDFHR is ADH of length 3.
+ * LCS for input Sequences AGGTAB and GXTXAYB is GTAB of length 4.
  */
 public class LongestCommonSubsequence
 {
