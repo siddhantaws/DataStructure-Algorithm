@@ -18,10 +18,14 @@ public class LongestCommonSubsequence
     public static void main(String[] args)
     {
         LongestCommonSubsequence longestCommonSubsequence =new LongestCommonSubsequence();
-        System.out.println("LongestCommonSubsequence "+ longestCommonSubsequence.lcsDynamic(longestCommonSubsequence.str2.toCharArray() , longestCommonSubsequence.str1.toCharArray()));
+        System.out.println("LongestCommonSubsequence "+ longestCommonSubsequence.lcsDynamic());
+    }
+    public String lcsDynamic()
+    {
+        return  lcsDynamic(str1.toCharArray() , str2.toCharArray());
     }
 
-    public int lcsDynamic(char[] s1 ,char[] s2)
+    public String lcsDynamic(char[] s1 ,char[] s2)
     {
         int[][] temp=new int[s1.length+1][s2.length+1];
         int max=0;
@@ -34,8 +38,7 @@ public class LongestCommonSubsequence
                 }
                 max = temp[i][j] > max ? temp[i][j] : max;
             }
-        System.out.println("LongestCommonSubsequence is :" + getLongestCommonSubsequence(temp , s1 ,s2));
-        return max;
+        return getLongestCommonSubsequence(temp , s1 ,s2);
     }
 
     private String getLongestCommonSubsequence(int[][] temp ,char[] s1 ,char[] s2 )
