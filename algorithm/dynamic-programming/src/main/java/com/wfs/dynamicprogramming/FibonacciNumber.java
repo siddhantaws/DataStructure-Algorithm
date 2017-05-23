@@ -1,4 +1,4 @@
-package com.wfs.dynamicprogramming.overlaping_subproblem;
+package com.wfs.dynamicprogramming;
 
 /**
  * Created by Suryasnata on 5/10/2017.
