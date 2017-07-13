@@ -1,4 +1,4 @@
-import com.wfs.dynamicprogramming.overlaping_subproblem.FibonacciNumber;
+import com.wfs.dynamicprogramming.FibonacciNumber;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,6 +14,5 @@ public class FibonacciNumberTest {
         Assert.assertEquals(fibonacciNumber.buttomUp(fibonacciNumber.getFibNumber()) ,fibonacciNumber.topDownFib(fibonacciNumber.getFibNumber()));
         fibonacciNumber=new FibonacciNumber(125);
         Assert.assertEquals(fibonacciNumber.buttomUp(fibonacciNumber.getFibNumber()) ,fibonacciNumber.topDownFib(fibonacciNumber.getFibNumber()));
-
     }
 }
