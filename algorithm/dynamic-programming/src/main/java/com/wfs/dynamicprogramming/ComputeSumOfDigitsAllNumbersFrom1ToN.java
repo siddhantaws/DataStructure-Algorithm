@@ -7,4 +7,5 @@ package com.wfs.dynamicprogramming;
  * Input: n = 328 Output: Sum of digits in numbers from 1 to 328 = 3241
  */
 public class ComputeSumOfDigitsAllNumbersFrom1ToN {
+
 }
