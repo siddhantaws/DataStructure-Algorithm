@@ -23,6 +23,7 @@
 	<module>pattern-searching</module>
 	<module>randomized-algorithm</module>
 	<module>searching-sorting</module>
+	<module>graph-algorithms</module>
   </modules>
   
 </project>
