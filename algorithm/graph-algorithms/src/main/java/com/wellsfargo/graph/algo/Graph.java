@@ -10,6 +10,10 @@ public class Graph<T> {
 
     boolean isDirected = false;
 
+    public Graph(){
+        this(false);
+    }
+
     public Graph(boolean isDirected){
         allEdges = new ArrayList<Edge<T>>();
         allVertex = new HashMap<>();
@@ -41,7 +45,7 @@ public class Graph<T> {
         return v;
     }
 
-    public Vertex<T> getVertex(long id){
+    public Vertex<T> getVertex(T id){
         return allVertex.get(id);
     }
 
@@ -95,9 +99,11 @@ public class Graph<T> {
         return buffer.toString();
     }
 
-    class Vertex<T> {
+    public static class Vertex<T> {
 
         private T data;
+
+        private boolean visited =false;
 
         private List<Edge<T>> edges = new ArrayList<>();
 
@@ -136,6 +142,14 @@ public class Graph<T> {
             return edges.size();
         }
 
+        public boolean isVisited() {
+            return visited;
+        }
+
+        public void setVisited(boolean visited) {
+            this.visited = visited;
+        }
+
         @Override
         public int hashCode() {
             final int prime = 31;
@@ -159,7 +173,7 @@ public class Graph<T> {
         }
     }
 
-    class Edge<T>{
+    static class Edge<T>{
 
         private boolean isDirected = false;
 
@@ -233,5 +247,18 @@ public class Graph<T> {
                 return false;
             return true;
         }
+    }
+
+    public static void main(String[] args) {
+        Graph<String> graph =new Graph();
+        graph.addEdge("A" , "B" , 10);
+        graph.addEdge("B" , "D" , 30);
+        graph.addEdge("D" , "F" , 50);
+        graph.addEdge("F" , "E" , 60);
+        graph.addEdge("E" , "C" , 40);
+        graph.addEdge("C" , "A" , 20);
+        System.out.println("graph = " + graph);
+        for(Graph.Vertex vertex:  graph.getAllVertex())
+            System.out.println(vertex.data);
     }
 }
