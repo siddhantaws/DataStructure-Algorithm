@@ -6,16 +6,11 @@ public class BruteForce extends PatternMatch {
     }
 
     public boolean match() {
-        int j = 0;
-        int k = 0;
-
-        for(int i = 0; i < this.text.length() - this.patternlength + 1; ++i) {
-             j = 0;
+        int j = 0 , k=0;
+        for (int i = 0; i < this.text.length() - this.patternlength + 1; ++i) {
+            j = 0;
             k = i;
-
-            while(j < this.patternlength && this.pattern.charAt(j++) == this.text.charAt(k++)) {
-                ;
-            }
+            while (j < this.patternlength && this.pattern.charAt(j++) == this.text.charAt(k++)) ;
 
             if (j >= this.patternlength) {
                 this.matchningIndex.add(k - this.patternlength);

@@ -21,20 +21,20 @@ public class FiniteAutomata extends PatternMatch {
         int lps = 0;
 
         int i;
-        for(i = 0; i < this.numberOfUniqueCharacter; ++i) {
+        for (i = 0; i < this.numberOfUniqueCharacter; ++i) {
             this.finiteAutomataArray[0][i] = 0;
         }
 
-        this.finiteAutomataArray[0][((Integer)this.characterToIndexMap.get(this.pattern.toCharArray()[0])).intValue()] = 1;
+        this.finiteAutomataArray[0][((Integer) this.characterToIndexMap.get(this.pattern.toCharArray()[0])).intValue()] = 1;
 
-        for(i = 1; i < this.patternlength - 1; ++i) {
-            for(int x = 0; x < this.numberOfUniqueCharacter; ++x) {
+        for (i = 1; i < this.patternlength - 1; ++i) {
+            for (int x = 0; x < this.numberOfUniqueCharacter; ++x) {
                 this.finiteAutomataArray[i][x] = this.finiteAutomataArray[lps][x];
             }
 
-            this.finiteAutomataArray[i][((Integer)this.characterToIndexMap.get(this.pattern.toCharArray()[i])).intValue()] = i + 1;
+            this.finiteAutomataArray[i][this.characterToIndexMap.get(this.pattern.toCharArray()[i])] = i + 1;
             if (i < this.patternlength) {
-                lps = this.finiteAutomataArray[lps][((Integer)this.characterToIndexMap.get(this.pattern.toCharArray()[i])).intValue()];
+                lps = this.finiteAutomataArray[lps][this.characterToIndexMap.get(this.pattern.toCharArray()[i])];
             }
         }
 
