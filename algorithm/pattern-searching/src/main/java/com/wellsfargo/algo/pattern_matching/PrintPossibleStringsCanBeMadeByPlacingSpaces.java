@@ -28,7 +28,7 @@ public class PrintPossibleStringsCanBeMadeByPlacingSpaces {
 
     public void getAllCombString(int i)
     {
-        for(;i<text_length-2;i++)
+        for(;i<text_length-2;i++);
 
     }
 }
