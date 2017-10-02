@@ -12,6 +12,7 @@ public class Boyer_Moore_Algo  extends PatternMatch {
         super(text, pattern);
         this.badCharacterArray =new int[numberOfUniqueCharacter][patternlength];
         this.goodSuffixArray =new int[patternlength];
+        goodSuffixArray[patternlength-1]=0;
         init();
     }
 
@@ -58,14 +59,36 @@ public class Boyer_Moore_Algo  extends PatternMatch {
        }
     }
 
-
     private void constructGoodSuffixTable()
     {
-
+        int i =patternlength -1 , k =i-1 , max_skip=1;
+        while(k>=0)
+            if(pattern.charAt(i)==pattern.charAt(k))
+                goodSuffixArray[k--]=patternlength-(i--);
+            else if(i!=patternlength -1)
+                i=patternlength -1 -goodSuffixArray[i+1];
+            else
+                goodSuffixArray[k--]= 0;
+        i=  patternlength -1 ;k=i-1;
+        for(;k>=0;k--)
+        {
+            while(k+1>max_skip)
+            {
+                if(goodSuffixArray[i]>1)
+                {
+                    if(goodSuffixArray[i]>=max_skip)
+                        goodSuffixArray[k--] = max_skip =Math.max(max_skip ,patternlength-goodSuffixArray[i]-i);
+                    else
+                        goodSuffixArray[k--] = max_skip;
+                }
+                i--;
+            }
+            goodSuffixArray[k] =patternlength;
+        }
     }
 
     public static void main(String[] args) {
-        PatternMatch patternMatch=new Boyer_Moore_Algo("AGTCTDSHDHDHD","ATGCTAGC");
-
+        Boyer_Moore_Algo patternMatch=new Boyer_Moore_Algo("AGTCTDSHDHDHD","aaabaabaa");
+        System.out.println(patternMatch.goodSuffixArray);
     }
 }

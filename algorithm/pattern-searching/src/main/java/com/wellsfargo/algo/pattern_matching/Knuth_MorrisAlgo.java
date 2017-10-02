@@ -29,7 +29,7 @@ public class Knuth_MorrisAlgo extends PatternMatch {
         return false;
     }
 
-    private int[] getPrefixArray() {
+    public  int[] getPrefixArray() {
         int i = 0;
         int j = 1;
         this.prefixArray[0] = 0;
