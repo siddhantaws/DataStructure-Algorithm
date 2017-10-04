@@ -18,6 +18,24 @@ public class Boyer_Moore_Algo  extends PatternMatch {
 
     @Override
     public boolean match() {
+        int k=patternlength-1 , i=k;
+        int skipBytes =0;
+        while(k>=0)
+        {
+            while (text.charAt(i)==pattern.charAt(k)){
+                k--;i--;
+            }
+            if(k>0)
+            {
+                int charIndex =characterToIndexMap.get(pattern.charAt(k-1));
+                k=skipBytes =Math.max(goodSuffixArray[k-1] , badCharacterArray[charIndex][k-1]);
+                i=i+k;
+            }else if(k==0)
+            {
+                matchningIndex.add(i);
+                k=patternlength-1;i=i+k;
+            }
+        }
         return false;
     }
 
@@ -61,7 +79,7 @@ public class Boyer_Moore_Algo  extends PatternMatch {
 
     private void constructGoodSuffixTable()
     {
-        int i =patternlength -1 , k =i-1 , max_skip=1;
+        int i =patternlength -1 , k =i-1 , max_skip=0;
         while(k>=0)
             if(pattern.charAt(i)==pattern.charAt(k))
                 goodSuffixArray[k--]=patternlength-(i--);
@@ -69,10 +87,10 @@ public class Boyer_Moore_Algo  extends PatternMatch {
                 i=patternlength -1 -goodSuffixArray[i+1];
             else
                 goodSuffixArray[k--]= 0;
-        i=  patternlength -1 ;k=i-1;
+        i=  patternlength -2 ;k=i;
         for(;k>=0;k--)
         {
-            while(k+1>max_skip)
+            while(i-max_skip>=0)
             {
                 if(goodSuffixArray[i]>1)
                 {
@@ -83,12 +101,15 @@ public class Boyer_Moore_Algo  extends PatternMatch {
                 }
                 i--;
             }
-            goodSuffixArray[k] =patternlength;
+            if(k-max_skip>=0)
+                goodSuffixArray[k] =max_skip;
+            else
+                goodSuffixArray[k] =patternlength;
         }
     }
 
     public static void main(String[] args) {
-        Boyer_Moore_Algo patternMatch=new Boyer_Moore_Algo("AGTCTDSHDHDHD","aaabaabaa");
-        System.out.println(patternMatch.goodSuffixArray);
+        Boyer_Moore_Algo patternMatch=new Boyer_Moore_Algo("GTTATAGCTGATCGCGGCGTAGCGGCGAA","GTAGCGGCG");
+        patternMatch.match();
     }
 }

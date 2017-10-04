@@ -1,11 +1,13 @@
 package com.wellsfargo.data_structure;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class Tries {
 
-    private Node rootNode;
+    private Tries.Node rootNode;
 
     public Tries() {
         rootNode=new Node();
@@ -14,6 +16,10 @@ public class Tries {
     public void add(String word)
     {
         add(word.toCharArray()) ;
+    }
+
+    public Tries.Node getRootNode() {
+        return rootNode;
     }
 
     private void add(char []word )
@@ -57,10 +63,21 @@ public class Tries {
         }
     }
 
-    class Node{
+    class Node implements Iterable{
+
         private boolean isEnd;
 
         private Map<Character , Node> characterNodeMap=new HashMap<>();
+
+        private Node failNode;
+
+        public Node getFailNode() {
+            return failNode;
+        }
+
+        public void setFailNode(Node failNode) {
+            this.failNode = failNode;
+        }
 
         public boolean isEnd() {
             return isEnd;
@@ -76,6 +93,29 @@ public class Tries {
 
         public void setCharacterNodeMap(Map<Character, Node> characterNodeMap) {
             this.characterNodeMap = characterNodeMap;
+        }
+
+        @Override
+        public Iterator iterator() {
+            return new TriesNodeIterator(this);
+        }
+    }
+
+    class TriesNodeIterator implements  Iterator<Map.Entry<Character,Node>>{
+
+        private Iterator<Map.Entry<Character,Node>> itr;
+        public TriesNodeIterator(Node node) {
+            this.itr=node.getCharacterNodeMap().entrySet().iterator();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return itr.hasNext();
+        }
+
+        @Override
+        public Map.Entry<Character,Node> next() {
+            return itr.next();
         }
     }
 
