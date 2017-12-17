@@ -22,6 +22,16 @@ public class LongestConsecutivePathFromGivenStartingCharacter {
         return getLongestPath(matrix ,  initialChar);
     }
 
+    private boolean isvalid(int i, int j) {
+        if (i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length)
+            return false;
+        return true;
+    }
+
+    private boolean isadjacent(char prev, char curr) {
+        return ((curr - prev) == 1);
+    }
+
     private int getLongestPath(char[][] matrix, char s) {
         //assigning all dp values to -1
         for (int i = 0; i < matrix.length; ++i)
@@ -50,20 +60,13 @@ public class LongestConsecutivePathFromGivenStartingCharacter {
     }
 
     private int getLenUtil(char mat[][], int i, int j, char prev) {
-        // If this cell is not valid or current character is not
-        // adjacent to previous one (e.g. d is not adjacent to b )
-        // or if this cell is already included in the path than return 0.
         if (!isvalid(i, j) || !isadjacent(prev, mat[i][j]))
             return 0;
-
         // If this subproblem is already solved , return the answer
         if (tempMatrix[i][j] != -1)
             return tempMatrix[i][j];
-
         int ans = 0;  // Initialize answer
-
-        // recur for paths with differnt adjacent cells and store
-        // the length of longest path.
+        // recur for paths with differnt adjacent cells and store the length of longest path.
         ans = Math.max(ans, 1 + getLenUtil(matrix, i, j + 1, mat[i][j]));
         ans = Math.max(ans, 1 + getLenUtil(matrix, i + 1, j + 1, mat[i][j]));
         ans = Math.max(ans, 1 + getLenUtil(matrix, i + 1, j, mat[i][j]));
@@ -75,21 +78,11 @@ public class LongestConsecutivePathFromGivenStartingCharacter {
         return tempMatrix[i][j] = ans;
     }
 
-    private boolean isvalid(int i, int j) {
-        if (i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length)
-            return false;
-        return true;
-    }
-
-    private boolean isadjacent(char prev, char curr) {
-        return ((curr - prev) == 1);
-    }
-
     public static void main(String[] args) {
-        LongestConsecutivePathFromGivenStartingCharacter longestConsecutivePathFromGivenStartingCharacter= new LongestConsecutivePathFromGivenStartingCharacter(new char [][] { {'a','c','d'},
+        LongestConsecutivePathFromGivenStartingCharacter longestConsecutivePathFromGivenStartingCharacter= new LongestConsecutivePathFromGivenStartingCharacter(new char [][] {
+                {'a','c','d'},
                 { 'h','b','a'},
                 { 'i','g','f'}}, 'a');
-        longestConsecutivePathFromGivenStartingCharacter.setInitialChar('b');
         System.out.println(longestConsecutivePathFromGivenStartingCharacter.getLongestPath() );
     }
 }
