@@ -1,8 +1,6 @@
 package com.wellsfargo.data_structure.tree;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class BinarySearchTree<K> extends AbstractTree<K> {
@@ -208,11 +206,143 @@ public class BinarySearchTree<K> extends AbstractTree<K> {
      *
      */
 
+    public void diagonalTraversal(){
+        Map<Integer ,List<Entry<K>>> entryMap=new HashMap<>();
+
+        for(Map.Entry<Integer , List<Entry<K>>> integerListEntry: diagonalTra(root , 0 , entryMap).entrySet()){
+            System.out.print(integerListEntry.getKey() +" ");
+            for(Entry<K> kEntry :integerListEntry.getValue())
+            {
+                System.out.print(kEntry.getKey() +" ");
+            }
+            System.out.println();
+        }
+    }
+
+    private Map<Integer , List<Entry<K>>> diagonalTra(Entry<K> entry , int d ,Map<Integer , List<Entry<K>>> entryMap){
+        List<Entry<K>>  entryMapList =entryMap.get(d);
+
+        if(entryMapList==null)
+            entryMapList=new ArrayList<>();
+
+        entryMapList.add(entry);
+
+        entryMap.put(d,entryMapList );
+        if(entry.getLeft()!=null)
+            diagonalTra(entry.getLeft() , d+1, entryMap);
+
+        if(entry.getRight()!=null)
+            diagonalTra(entry.getRight() , d, entryMap);
+        return  entryMap;
+    }
+
+    /*
+    *
+    * Print a Binary Tree in Vertical Order Start
+    *
+    * */
+    public void verticalTraversal(){
+        int min =0 ;int max= 0;
+        getMinMaxDepthBinaryTree(root , max ,min , 0);
+        System.out.println(1);
+    }
+
+    private void getMinMaxDepthBinaryTree(Entry<K> entry , int max , int min , int currwidth){
+        if(currwidth>max)
+            max= currwidth ;
+        if(currwidth<min)
+            min =currwidth;
+        if(entry.getLeft()!=null){
+            getMinMaxDepthBinaryTree(entry.getLeft() , max ,min , currwidth-1);
+        }
+         if(entry.getRight()!=null){
+            getMinMaxDepthBinaryTree(entry.getRight() , max ,min , currwidth+1);
+        }
+    }
+    /*
+     *
+     * Print a Binary Tree in Vertical Order End
+     *
+     * */
+
+    /*
+    *
+    * Boundary Traversal of binary tree Start
+    *
+    * */
+    public void boundaryTraversal(){
+        System.out.println(root.getKey());
+        leftAndRightBoundryTrasal(root.getLeft() , true);
+        leafTraversal(root);
+        leftAndRightBoundryTrasal(root.getRight() , false);
+    }
+
+    private void leafTraversal(Entry<K> entry){
+        if(entry.getLeft()==null && entry.getRight()==null)
+            System.out.println(entry.getKey());
+        else
+        {
+            if(entry.getLeft()!=null)
+                leafTraversal(entry.getLeft());
+            if(entry.getRight()!=null)
+                leafTraversal(entry.getRight());
+        }
+    }
+
+    private void leftAndRightBoundryTrasal(Entry<K> entry , boolean leftOrRight){
+        if(leftOrRight && entry.getLeft()!=null ){
+            System.out.println(entry.getKey());
+            leftAndRightBoundryTrasal(entry.getLeft() , leftOrRight);
+        }else if(entry.getRight()!=null)
+        {
+            System.out.println(entry.getKey());
+            leftAndRightBoundryTrasal(entry.getRight() , leftOrRight);
+        }
+    }
+    /*
+     *
+     * Boundary Traversal of binary tree End
+     *
+     * */
+
+
+    /*
+     *
+     * LCA Question Starts
+     *
+     * */
+    public K getLCA(K k1 , K k2){
+        Entry<K> kEntry =getLCA(root , k1, k2);
+        return kEntry==null ? null : kEntry.getKey();
+    }
+
+    private Entry<K> getLCA(Entry<K> entry , K k1 , K k2){
+        if(entry==null)
+            return  null;
+        if(entry.getKey().equals(k1) || entry.getKey().equals(k2))
+            return entry;
+
+        Entry<K> entryLeft = getLCA(entry.getLeft() , k1,k2);
+        Entry<K> entryRight = getLCA(entry.getRight() , k1,k2);
+
+        if(entryLeft!=null && entryRight!=null)
+            return entry;
+
+        return entryLeft==null ? entryRight : entryRight;
+    }
+    /*
+     *
+     * LCA Question End
+     *
+     * */
+
     public static void main(String[] args) {
         Tree<Integer> tree=new BinarySearchTree<>();
-        tree.add(20);tree.add(10);tree.add(40);
-        tree.add(5);tree.add(17);tree.add(30);tree.add(45);
-       ((BinarySearchTree)tree).inOrderTraversalIterative();
+        tree.add(20);
+            tree.add(8);tree.add(22);
+        tree.add(4);tree.add(12);tree.add(10);
+        tree.add(14);tree.add(21);tree.add(25);
+        System.out.println(((BinarySearchTree)tree).getLCA(21,29));
         //System.out.println(tree.height());
     }
 }
