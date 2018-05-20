@@ -173,7 +173,7 @@ public class Graph<T> {
         }
     }
 
-    static class Edge<T>{
+    public static class Edge<T>{
 
         private boolean isDirected = false;
 
@@ -201,15 +201,15 @@ public class Graph<T> {
             this.isDirected = isDirected;
         }
 
-        Vertex<T> getVertex1(){
+        public Vertex<T> getVertex1(){
             return vertex1;
         }
 
-        Vertex<T> getVertex2(){
+        public Vertex<T> getVertex2(){
             return vertex2;
         }
 
-        int getWeight(){
+        public int getWeight(){
             return weight;
         }
 

@@ -2,18 +2,19 @@ package com.wellsfargo.algo.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class KnightsTourProblem {
 
     private int rowColumnValue ;
 
-    private List<Points> points;
+    private LinkedList<Points> points;
 
     private int[][] chessArray;
     public KnightsTourProblem(int rowColumnValue) {
         this.rowColumnValue = rowColumnValue;
-        this.points = new ArrayList<>();
+        this.points = new LinkedList<>();
         this.chessArray =new int[rowColumnValue][rowColumnValue];
     }
 
@@ -37,11 +38,23 @@ public class KnightsTourProblem {
             return true;
         else
         {
-            points.add(new Points(x ,y));
-            if(getKnightTourRoute(x-2 , y-1)|| getKnightTourRoute(x-2 , y+1) || getKnightTourRoute(x-1 , y-2) || getKnightTourRoute(x+1 , y-2) || getKnightTourRoute(x+2 , y-1)
-             || getKnightTourRoute(x+2 , y+1) || getKnightTourRoute(x+1 , y+2) || getKnightTourRoute(x-1 , y+2))
-                return true ;
-            points.remove(new Points(x ,y));
+            points.addLast(new Points(x ,y));
+            if(!getKnightTourRoute(x-2 , y-1))
+                points.removeLast();
+            if(!getKnightTourRoute(x-2 , y+1))
+                points.removeLast();
+            if(!getKnightTourRoute(x-1 , y-2))
+                points.removeLast();
+            if(!getKnightTourRoute(x+1 , y-2))
+                points.removeLast();
+            if(!getKnightTourRoute(x+2 , y-1))
+                points.removeLast();
+            if(!getKnightTourRoute(x+2 , y+1))
+                points.removeLast();
+            if(!getKnightTourRoute(x+1 , y+2))
+                points.removeLast();
+            if(!getKnightTourRoute(x-1 , y+2))
+                points.removeLast();
         }
         return false;
     }

@@ -305,12 +305,16 @@ public class BinarySearchTree<K> extends AbstractTree<K> {
      *
      * */
 
-
     /*
      *
      * LCA Question Starts
      *
      * */
+    public K getLCAUsingItr(K k1 , K k2){
+        Entry<K> kEntry =getLCAUsingIterative(root , k1, k2);
+        return kEntry==null ? null : kEntry.getKey();
+    }
+
     public K getLCA(K k1 , K k2){
         Entry<K> kEntry =getLCA(root , k1, k2);
         return kEntry==null ? null : kEntry.getKey();
@@ -330,9 +334,55 @@ public class BinarySearchTree<K> extends AbstractTree<K> {
 
         return entryLeft==null ? entryRight : entryRight;
     }
+
+    private Entry<K> getLCAUsingIterative(Entry<K> entry , K k1 , K k2){
+        while(entry!=null){
+
+            if(((Comparable)entry.getKey()).compareTo(k1)>0 && ((Comparable)entry.getKey()).compareTo(k2)>0)
+                entry=entry.getLeft();
+
+            else if(((Comparable)entry.getKey()).compareTo(k1)<0 && ((Comparable)entry.getKey()).compareTo(k2)<0)
+                entry=entry.getRight();
+
+            else
+                break;
+                        
+        }
+        return entry;
+    }
     /*
      *
      * LCA Question End
+     *
+     * */
+
+    /*
+    * Construct Binary Tree Question Start
+    *
+    * */
+    public Entry<K> getBinaryTree(List<K> preOrderlist ,List<K> inOrderList){
+        return constructBinaryTree(preOrderlist, inOrderList , 0 , preOrderlist.size()-1 , 0 , preOrderlist.size()-1);
+    }
+
+    private Entry<K> constructBinaryTree(List<K> preOrderlist ,List<K> inOrderList , int inStart , int inEnd ,int preStart , int preEnd) {
+        if(inStart>inEnd || preStart>preEnd)
+            return null;
+        Entry<K> kEntry =new Entry<>(preOrderlist.get(preStart));
+        int currIndex =getIndex(inOrderList , kEntry.getKey());
+        kEntry.setLeft(constructBinaryTree(preOrderlist , inOrderList , inStart , currIndex-1 , preStart+1 , currIndex-inStart+preStart ));
+        kEntry.setRight(constructBinaryTree(preOrderlist , inOrderList , currIndex+1 , inEnd , preStart+currIndex+1 , preEnd));
+        return  kEntry;
+    }
+
+    private int getIndex(List<K> inOrderList , K k){
+        for(int i=0;i<inOrderList.size();i++){
+            if(inOrderList.get(i).equals(k))
+                return i;
+        }
+        return -1;
+    }
+    /*
+     * Construct Binary Tree Question End
      *
      * */
 
@@ -342,7 +392,8 @@ public class BinarySearchTree<K> extends AbstractTree<K> {
             tree.add(8);tree.add(22);
         tree.add(4);tree.add(12);tree.add(10);
         tree.add(14);tree.add(21);tree.add(25);
-        System.out.println(((BinarySearchTree)tree).getLCA(21,29));
+        
+        System.out.println(((BinarySearchTree)tree).getLCAUsingItr(21,25));
         //System.out.println(tree.height());
     }
 }

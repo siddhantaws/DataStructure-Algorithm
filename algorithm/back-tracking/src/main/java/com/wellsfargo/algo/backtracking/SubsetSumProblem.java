@@ -34,11 +34,10 @@ public class SubsetSumProblem {
             return ;
         }else
         {
-            for(int i=source;i<=dest;i++)
-            {
-                ((LinkedList)subsetSum) .addFirst(numArray[source]);
-                getSubSetSum(sum-numArray[source] , source+1, dest);
-                    ((LinkedList)subsetSum).removeLast();
+            for(int i=source;i<=dest;i++) {
+                ((LinkedList)subsetSum).addFirst(numArray[i]);
+                getSubSetSum(sum-numArray[i] , i+1, dest);
+                ((LinkedList)subsetSum).removeLast();
             }
         }
     }

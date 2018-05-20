@@ -28,27 +28,28 @@ public class RatIinAMaze {
             points.add(new Points(x ,y));
             return true;
         }
-        else
-            for(int i=0;i<=1;i++)
-            {
-                points.add(new Points(x ,y));
-                if(getPathInAMaze(x+1 , y))
-                   return true;
-                if(getPathInAMaze(x , y+1))
-                    return true;
-                points.remove(new Points(x ,y));
-            }
+        else {
+            int size = points.size();
+            points.add(size, new Points(x, y));
+            if (getPathInAMaze(x + 1, y) || getPathInAMaze(x, y + 1))
+                return true;
+            else
+                points.remove(size);
+        }
         return false;
     }
 
     public static void main(String[] args) {
         int maze[][] = {{1, 1, 1, 0},
-                        {1, 0, 1, 1},
-                        {0, 1, 0, 1},
-                        {1, 1, 1, 1}
+                {1, 0, 1, 1},
+                {0, 1, 0, 1},
+                {1, 1, 1, 1}
         };
         RatIinAMaze ratIinAMaze =new RatIinAMaze(maze);
-        ratIinAMaze.getPathInAMaze();
+        List<Points> pathInAMaze=ratIinAMaze.getPathInAMaze();
+        for(Points points: pathInAMaze){
+            System.out.println(points);
+        }
     }
 
 }

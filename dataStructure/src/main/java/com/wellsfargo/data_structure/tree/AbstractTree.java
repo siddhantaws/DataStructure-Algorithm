@@ -70,6 +70,8 @@ public abstract class  AbstractTree<K> implements Tree<K> {
             this.parent = parent;
         }
 
+        public Entry(){}
+
         public void setLeft(Entry<K> left) {
             this.left = left;
         }
