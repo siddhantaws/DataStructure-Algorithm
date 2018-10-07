@@ -1,5 +1,8 @@
 Tree
-1)Construction of tree
-2)Segment Tree 
-3)Lazy propagation Segment Tree
-4)Sparse Tree
+=====
+1)Construction of tree https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/
+2)Segment Tree  https://www.youtube.com/watch?v=ZBHKZF5w4YU&t=1096s
+3)Lazy propagation Segment Tree https://www.youtube.com/watch?v=xuoQdt5pHj0
+4)Sparse Tree https://www.youtube.com/watch?v=c5O7E_PDO4U&t=553s
+5)Height Of tree Caculation (check in note book) 
+
