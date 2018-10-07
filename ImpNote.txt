@@ -1,0 +1,5 @@
+Tree
+1)Construction of tree
+2)Segment Tree 
+3)Lazy propagation Segment Tree
+4)Sparse Tree
