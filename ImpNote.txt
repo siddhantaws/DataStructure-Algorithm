@@ -5,4 +5,6 @@ Tree
 3)Lazy propagation Segment Tree https://www.youtube.com/watch?v=xuoQdt5pHj0
 4)Sparse Tree https://www.youtube.com/watch?v=c5O7E_PDO4U&t=553s
 5)Height Of tree Caculation (check in note book) 
-
+6)LCA using segment Tree and Sparse tree 
+7)LCA usinf dynamic programming 
+8)
