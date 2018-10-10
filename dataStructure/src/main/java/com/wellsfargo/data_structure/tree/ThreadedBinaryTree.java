@@ -51,10 +51,10 @@ public class ThreadedBinaryTree<K> extends BinarySearchTree {
     }
 
     public static void main(String[] args) {
-        Tree<Integer> tree=new ThreadedBinaryTree<>();
+       /* Tree<Integer> tree=new ThreadedBinaryTree<>();
         tree.add(20);tree.add(10);tree.add(40);
         tree.add(5);tree.add(17);tree.add(30);tree.add(45);
-        ((ThreadedBinaryTree)tree).preOrderTraversal();
+        ((ThreadedBinaryTree)tree).preOrderTraversal();*/
     }
 
 }
