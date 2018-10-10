@@ -34,6 +34,7 @@
  */
 
 package com.wfs.concurrent;
+import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -515,7 +516,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
         static {
             try {
-                UNSAFE = sun.misc.Unsafe.getUnsafe();
+                UNSAFE = UnSafeUtil.unsafe;
                 Class k = Node.class;
                 valueOffset = UNSAFE.objectFieldOffset
                     (k.getDeclaredField("value"));
@@ -590,12 +591,13 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return !indexesDeletedNode() && casRight(succ, succ.right);
         }
 
+        
         // Unsafe mechanics
         private static final sun.misc.Unsafe UNSAFE;
         private static final long rightOffset;
         static {
             try {
-                UNSAFE = sun.misc.Unsafe.getUnsafe();
+                UNSAFE = UnSafeUtil.unsafe;
                 Class k = Index.class;
                 rightOffset = UNSAFE.objectFieldOffset
                     (k.getDeclaredField("right"));
@@ -3102,12 +3104,13 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
+   
     // Unsafe mechanics
     private static final sun.misc.Unsafe UNSAFE;
     private static final long headOffset;
     static {
         try {
-            UNSAFE = sun.misc.Unsafe.getUnsafe();
+        	UNSAFE = UnSafeUtil.unsafe ;
             Class k = ConcurrentSkipListMap.class;
             headOffset = UNSAFE.objectFieldOffset
                 (k.getDeclaredField("head"));
@@ -3115,4 +3118,5 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             throw new Error(e);
         }
     }
+    
 }
