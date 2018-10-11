@@ -35,6 +35,7 @@
 
 package com.wfs.concurrent;
 import java.util.concurrent.locks.*;
+import java.util.concurrent.atomic.*;
 
 /**
  * A synchronization aid that allows one or more threads to wait until

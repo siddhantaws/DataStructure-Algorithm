@@ -36,6 +36,8 @@
 package com.wfs.concurrent;
 import java.util.List;
 import java.util.Collection;
+import java.security.PrivilegedAction;
+import java.security.PrivilegedExceptionAction;
 
 /**
  * An {@link Executor} that provides methods to manage termination and
@@ -151,7 +153,7 @@ public interface ExecutorService extends Executor {
      *         shutting down this ExecutorService may manipulate
      *         threads that the caller is not permitted to modify
      *         because it does not hold {@link
-     *         java.lang.RuntimePermission}<tt>("modifyThread")</tt>,
+     *         RuntimePermission}<tt>("modifyThread")</tt>,
      *         or the security manager's <tt>checkAccess</tt> method
      *         denies access.
      */
@@ -176,7 +178,7 @@ public interface ExecutorService extends Executor {
      *         shutting down this ExecutorService may manipulate
      *         threads that the caller is not permitted to modify
      *         because it does not hold {@link
-     *         java.lang.RuntimePermission}<tt>("modifyThread")</tt>,
+     *         RuntimePermission}<tt>("modifyThread")</tt>,
      *         or the security manager's <tt>checkAccess</tt> method
      *         denies access.
      */
@@ -226,7 +228,7 @@ public interface ExecutorService extends Executor {
      *
      * <p> Note: The {@link Executors} class includes a set of methods
      * that can convert some other common closure-like objects,
-     * for example, {@link java.security.PrivilegedAction} to
+     * for example, {@link PrivilegedAction} to
      * {@link Callable} form so they can be submitted.
      *
      * @param task the task to submit

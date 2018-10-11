@@ -44,7 +44,7 @@ import sun.misc.Unsafe;
  * synchronization classes.
  *
  * <p>This class associates, with each thread that uses it, a permit
- * (in the sense of the {@link java.util.concurrent.Semaphore
+ * (in the sense of the {@link Semaphore
  * Semaphore} class). A call to {@code park} will return immediately
  * if the permit is available, consuming it in the process; otherwise
  * it <em>may</em> block.  A call to {@code unpark} makes the permit
@@ -153,7 +153,7 @@ public class LockSupport {
     static {
         try {
             parkBlockerOffset = unsafe.objectFieldOffset
-                (java.lang.Thread.class.getDeclaredField("parkBlocker"));
+                (Thread.class.getDeclaredField("parkBlocker"));
         } catch (Exception ex) { throw new Error(ex); }
     }
 

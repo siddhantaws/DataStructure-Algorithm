@@ -301,7 +301,7 @@ public class Executors {
      * Returns a default thread factory used to create new threads.
      * This factory creates all new threads used by an Executor in the
      * same {@link ThreadGroup}. If there is a {@link
-     * java.lang.SecurityManager}, it uses the group of {@link
+     * SecurityManager}, it uses the group of {@link
      * System#getSecurityManager}, else the group of the thread
      * invoking this <tt>defaultThreadFactory</tt> method. Each new
      * thread is created as a non-daemon thread with priority set to
@@ -333,8 +333,8 @@ public class Executors {
      * <p> Note that while tasks running within such threads will have
      * the same access control and class loader settings as the
      * current thread, they need not have the same {@link
-     * java.lang.ThreadLocal} or {@link
-     * java.lang.InheritableThreadLocal} values. If necessary,
+     * ThreadLocal} or {@link
+     * InheritableThreadLocal} values. If necessary,
      * particular values of thread locals can be set or reset before
      * any task runs in {@link ThreadPoolExecutor} subclasses using
      * {@link ThreadPoolExecutor#beforeExecute}. Also, if it is

@@ -101,7 +101,7 @@ public class Tries {
         }
     }
 
-    class TriesNodeIterator implements  Iterator<Map.Entry<Character,Node>>{
+    class TriesNodeIterator implements  Iterator<Map.Entry<Character,Node>> {
 
         private Iterator<Map.Entry<Character,Node>> itr;
         public TriesNodeIterator(Node node) {
@@ -116,6 +116,11 @@ public class Tries {
         @Override
         public Map.Entry<Character,Node> next() {
             return itr.next();
+        }
+
+
+        public void remove() {
+
         }
     }
 

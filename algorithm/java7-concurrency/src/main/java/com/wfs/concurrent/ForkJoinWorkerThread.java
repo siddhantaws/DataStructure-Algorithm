@@ -300,7 +300,7 @@ public class ForkJoinWorkerThread extends Thread {
         poolIndex = k;
         eventCount = ~k & SMASK; // clear wait count
         locallyFifo = pool.locallyFifo;
-        Thread.UncaughtExceptionHandler ueh = pool.ueh;
+        UncaughtExceptionHandler ueh = pool.ueh;
         if (ueh != null)
             setUncaughtExceptionHandler(ueh);
         setDaemon(true);

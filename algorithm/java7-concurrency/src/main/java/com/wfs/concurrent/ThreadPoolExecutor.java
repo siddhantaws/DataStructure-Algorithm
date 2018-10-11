@@ -208,19 +208,19 @@ import java.util.*;
  *
  * <ol>
  *
- * <li> In the default {@link ThreadPoolExecutor.AbortPolicy}, the
+ * <li> In the default {@link AbortPolicy}, the
  * handler throws a runtime {@link RejectedExecutionException} upon
  * rejection. </li>
  *
- * <li> In {@link ThreadPoolExecutor.CallerRunsPolicy}, the thread
+ * <li> In {@link CallerRunsPolicy}, the thread
  * that invokes {@code execute} itself runs the task. This provides a
  * simple feedback control mechanism that will slow down the rate that
  * new tasks are submitted. </li>
  *
- * <li> In {@link ThreadPoolExecutor.DiscardPolicy}, a task that
+ * <li> In {@link DiscardPolicy}, a task that
  * cannot be executed is simply dropped.  </li>
  *
- * <li>In {@link ThreadPoolExecutor.DiscardOldestPolicy}, if the
+ * <li>In {@link DiscardOldestPolicy}, if the
  * executor is not shut down, the task at the head of the work queue
  * is dropped, and then execution is retried (which can fail again,
  * causing this to be repeated.) </li>

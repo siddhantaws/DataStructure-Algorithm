@@ -111,7 +111,7 @@ import java.util.Date;
  * }
  * </pre>
  *
- * (The {@link java.util.concurrent.ArrayBlockingQueue} class provides
+ * (The {@link ArrayBlockingQueue} class provides
  * this functionality, so there is no reason to implement this
  * sample usage class.)
  *

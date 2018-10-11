@@ -44,7 +44,7 @@ import sun.misc.Unsafe;
  * description of the properties of atomic variables. An
  * {@code AtomicLong} is used in applications such as atomically
  * incremented sequence numbers, and cannot be used as a replacement
- * for a {@link java.lang.Long}. However, this class does extend
+ * for a {@link Long}. However, this class does extend
  * {@code Number} to allow uniform access by tools and utilities that
  * deal with numerically-based classes.
  *

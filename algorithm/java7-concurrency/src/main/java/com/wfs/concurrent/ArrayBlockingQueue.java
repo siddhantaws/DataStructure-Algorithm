@@ -34,11 +34,8 @@
  */
 
 package com.wfs.concurrent;
-
+import java.util.concurrent.locks.*;
 import java.util.*;
-
-import com.wfs.concurrent.locks.Condition;
-import com.wfs.concurrent.locks.ReentrantLock;
 
 /**
  * A bounded {@linkplain BlockingQueue blocking queue} backed by an
@@ -708,7 +705,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * The elements will be returned in order from first (head) to last (tail).
      *
      * <p>The returned {@code Iterator} is a "weakly consistent" iterator that
-     * will never throw {@link java.util.ConcurrentModificationException
+     * will never throw {@link ConcurrentModificationException
      * ConcurrentModificationException},
      * and guarantees to traverse elements as they existed upon
      * construction of the iterator, and may (but is not guaranteed to)

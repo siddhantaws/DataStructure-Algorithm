@@ -34,6 +34,8 @@
  */
 
 package com.wfs.concurrent;
+import java.util.concurrent.atomic.*;
+import java.util.*;
 
 /**
  * An {@link ExecutorService} that can schedule commands to run after a given
@@ -54,7 +56,7 @@ package com.wfs.concurrent;
  * <p>All <tt>schedule</tt> methods accept <em>relative</em> delays and
  * periods as arguments, not absolute times or dates. It is a simple
  * matter to transform an absolute time represented as a {@link
- * java.util.Date} to the required form. For example, to schedule at
+ * Date} to the required form. For example, to schedule at
  * a certain future <tt>date</tt>, you can use: <tt>schedule(task,
  * date.getTime() - System.currentTimeMillis(),
  * TimeUnit.MILLISECONDS)</tt>. Beware however that expiration of a

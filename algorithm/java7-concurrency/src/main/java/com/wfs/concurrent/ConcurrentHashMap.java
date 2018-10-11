@@ -39,11 +39,13 @@ import java.util.*;
 import java.io.Serializable;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectStreamField;
 
 /**
  * A hash table supporting full concurrency of retrievals and
  * adjustable expected concurrency for updates. This class obeys the
- * same functional specification as {@link java.util.Hashtable}, and
+ * same functional specification as {@link Hashtable}, and
  * includes versions of methods corresponding to each method of
  * <tt>Hashtable</tt>. However, even though all operations are
  * thread-safe, retrieval operations do <em>not</em> entail locking,
@@ -227,7 +229,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     private static int randomHashSeed(ConcurrentHashMap instance) {
         if (sun.misc.VM.isBooted() && Holder.ALTERNATIVE_HASHING) {
-            return 0;
+            return sun.misc.Hashing.randomHashSeed(instance);
         }
 
         return 0;
@@ -250,7 +252,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
     final Segment<K,V>[] segments;
 
     transient Set<K> keySet;
-    transient Set<Map.Entry<K,V>> entrySet;
+    transient Set<Entry<K,V>> entrySet;
     transient Collection<V> values;
 
     /**
@@ -325,7 +327,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         int h = hashSeed;
 
         if ((0 != h) && (k instanceof String)) {
-            return 0;
+            return sun.misc.Hashing.stringHash32((String) k);
         }
 
         h ^= k.hashCode();
@@ -1087,7 +1089,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * Legacy method testing if some key maps into the specified value
      * in this table.  This method is identical in functionality to
      * {@link #containsValue}, and exists solely to ensure
-     * full compatibility with class {@link java.util.Hashtable},
+     * full compatibility with class {@link Hashtable},
      * which supported this method prior to introduction of the
      * Java Collections framework.
 
@@ -1156,7 +1158,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * @param m mappings to be stored in this map
      */
     public void putAll(Map<? extends K, ? extends V> m) {
-        for (Map.Entry<? extends K, ? extends V> e : m.entrySet())
+        for (Entry<? extends K, ? extends V> e : m.entrySet())
             put(e.getKey(), e.getValue());
     }
 
@@ -1285,8 +1287,8 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * construction of the iterator, and may (but is not guaranteed to)
      * reflect any modifications subsequent to construction.
      */
-    public Set<Map.Entry<K,V>> entrySet() {
-        Set<Map.Entry<K,V>> es = entrySet;
+    public Set<Entry<K,V>> entrySet() {
+        Set<Entry<K,V>> es = entrySet;
         return (es != null) ? es : (entrySet = new EntrySet());
     }
 
@@ -1388,7 +1390,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * setValue changes to the underlying map.
      */
     final class WriteThroughEntry
-        extends AbstractMap.SimpleEntry<K,V>
+        extends SimpleEntry<K,V>
     {
         WriteThroughEntry(K k, V v) {
             super(k,v);
@@ -1415,7 +1417,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         extends HashIterator
         implements Iterator<Entry<K,V>>
     {
-        public Map.Entry<K,V> next() {
+        public Entry<K,V> next() {
             HashEntry<K,V> e = super.nextEntry();
             return new WriteThroughEntry(e.key, e.value);
         }
@@ -1460,21 +1462,21 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         }
     }
 
-    final class EntrySet extends AbstractSet<Map.Entry<K,V>> {
-        public Iterator<Map.Entry<K,V>> iterator() {
+    final class EntrySet extends AbstractSet<Entry<K,V>> {
+        public Iterator<Entry<K,V>> iterator() {
             return new EntryIterator();
         }
         public boolean contains(Object o) {
             if (!(o instanceof Map.Entry))
                 return false;
-            Map.Entry<?,?> e = (Map.Entry<?,?>)o;
+            Entry<?,?> e = (Entry<?,?>)o;
             V v = ConcurrentHashMap.this.get(e.getKey());
             return v != null && v.equals(e.getValue());
         }
         public boolean remove(Object o) {
             if (!(o instanceof Map.Entry))
                 return false;
-            Map.Entry<?,?> e = (Map.Entry<?,?>)o;
+            Entry<?,?> e = (Entry<?,?>)o;
             return ConcurrentHashMap.this.remove(e.getKey(), e.getValue());
         }
         public int size() {
@@ -1499,7 +1501,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * for each key-value mapping, followed by a null pair.
      * The key-value mappings are emitted in no particular order.
      */
-    private void writeObject(java.io.ObjectOutputStream s) throws IOException {
+    private void writeObject(ObjectOutputStream s) throws IOException {
         // force all segments for serialization compatibility
         for (int k = 0; k < segments.length; ++k)
             ensureSegment(k);
@@ -1532,7 +1534,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      * @param s the stream
      */
     @SuppressWarnings("unchecked")
-    private void readObject(java.io.ObjectInputStream s)
+    private void readObject(ObjectInputStream s)
         throws IOException, ClassNotFoundException {
         // Don't call defaultReadObject()
         ObjectInputStream.GetField oisFields = s.readFields();

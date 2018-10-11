@@ -39,7 +39,7 @@ import java.util.Collection;
 import java.util.Queue;
 
 /**
- * A {@link java.util.Queue} that additionally supports operations
+ * A {@link Queue} that additionally supports operations
  * that wait for the queue to become non-empty when retrieving an
  * element, and wait for space to become available in the queue when
  * storing an element.
@@ -99,7 +99,7 @@ import java.util.Queue;
  *
  * <p> <tt>BlockingQueue</tt> implementations are designed to be used
  * primarily for producer-consumer queues, but additionally support
- * the {@link java.util.Collection} interface.  So, for example, it is
+ * the {@link Collection} interface.  So, for example, it is
  * possible to remove an arbitrary element from a queue using
  * <tt>remove(x)</tt>. However, such operations are in general
  * <em>not</em> performed very efficiently, and are intended for only

@@ -44,7 +44,7 @@ import sun.misc.Unsafe;
  * description of the properties of atomic variables. An
  * {@code AtomicInteger} is used in applications such as atomically
  * incremented counters, and cannot be used as a replacement for an
- * {@link java.lang.Integer}. However, this class does extend
+ * {@link Integer}. However, this class does extend
  * {@code Number} to allow uniform access by tools and utilities that
  * deal with numerically-based classes.
  *

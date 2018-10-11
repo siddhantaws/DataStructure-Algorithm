@@ -58,7 +58,7 @@ public interface ConcurrentNavigableMap<K,V>
      * @throws IllegalArgumentException {@inheritDoc}
      */
     ConcurrentNavigableMap<K,V> subMap(K fromKey, boolean fromInclusive,
-                                       K toKey,   boolean toInclusive);
+                                       K toKey, boolean toInclusive);
 
     /**
      * @throws ClassCastException       {@inheritDoc}

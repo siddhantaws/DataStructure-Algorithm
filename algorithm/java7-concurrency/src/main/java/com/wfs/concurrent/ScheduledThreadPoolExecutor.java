@@ -41,7 +41,7 @@ import java.util.*;
 /**
  * A {@link ThreadPoolExecutor} that can additionally schedule
  * commands to run after a given delay, or to execute
- * periodically. This class is preferable to {@link java.util.Timer}
+ * periodically. This class is preferable to {@link Timer}
  * when multiple worker threads are needed, or when the additional
  * flexibility or capabilities of {@link ThreadPoolExecutor} (which
  * this class extends) are required.

@@ -34,10 +34,9 @@
  */
 
 package com.wfs.concurrent.locks;
-import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.*;
-
+import java.util.concurrent.atomic.*;
 import sun.misc.Unsafe;
 
 /**
@@ -182,7 +181,7 @@ import sun.misc.Unsafe;
  * release parameters, and an internal FIFO wait queue. When this does
  * not suffice, you can build synchronizers from a lower level using
  * {@link java.util.concurrent.atomic atomic} classes, your own custom
- * {@link java.util.Queue} classes, and {@link LockSupport} blocking
+ * {@link Queue} classes, and {@link LockSupport} blocking
  * support.
  *
  * <h3>Usage Examples</h3>
@@ -2273,7 +2272,7 @@ public abstract class AbstractQueuedSynchronizer
      * are at it, we do the same for other CASable fields (which could
      * otherwise be done with atomic field updaters).
      */
-    private static final Unsafe unsafe = getUnsafe ();
+    private static final Unsafe unsafe = Unsafe.getUnsafe();
     private static final long stateOffset;
     private static final long headOffset;
     private static final long tailOffset;
@@ -2296,22 +2295,6 @@ public abstract class AbstractQueuedSynchronizer
         } catch (Exception ex) { throw new Error(ex); }
     }
 
-    private static Unsafe getUnsafe ()
-	{
-		Unsafe unsafe=null;
-		if(unsafe==null)
-		{
-			try {
-				Class cls=Class.forName("sun.misc.Unsafe");
-				Field field=cls.getDeclaredField("theUnsafe");
-				field.setAccessible(true);
-				unsafe=(Unsafe)field.get(null);
-			} catch (ClassNotFoundException | NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-				e.printStackTrace();
-			}
-		}
-		return unsafe;
-	}
     /**
      * CAS head field. Used only by enq.
      */

@@ -36,7 +36,7 @@
 package com.wfs.concurrent.locks;
 import java.util.*;
 import java.util.concurrent.*;
-
+import java.util.concurrent.atomic.*;
 import sun.misc.Unsafe;
 
 /**

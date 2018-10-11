@@ -35,6 +35,7 @@
 
 package com.wfs.concurrent.locks;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
 import java.util.*;
 
 /**
@@ -218,9 +219,9 @@ public class ReentrantReadWriteLock
         implements ReadWriteLock, java.io.Serializable {
     private static final long serialVersionUID = -6992448646407690164L;
     /** Inner class providing readlock */
-    private final ReentrantReadWriteLock.ReadLock readerLock;
+    private final ReadLock readerLock;
     /** Inner class providing writelock */
-    private final ReentrantReadWriteLock.WriteLock writerLock;
+    private final WriteLock writerLock;
     /** Performs all synchronization mechanics */
     final Sync sync;
 
@@ -244,13 +245,13 @@ public class ReentrantReadWriteLock
         writerLock = new WriteLock(this);
     }
 
-    public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
-    public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
+    public WriteLock writeLock() { return writerLock; }
+    public ReadLock  readLock()  { return readerLock; }
 
     /**
      * Synchronization implementation for ReentrantReadWriteLock.
      * Subclassed into fair and nonfair versions.
-    */
+     */
     abstract static class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = 6317671515068378041L;
 

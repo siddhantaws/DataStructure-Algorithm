@@ -44,7 +44,7 @@ import sun.misc.Unsafe;
  * description of the properties of atomic variables. An
  * {@code AtomicBoolean} is used in applications such as atomically
  * updated flags, and cannot be used as a replacement for a
- * {@link java.lang.Boolean}.
+ * {@link Boolean}.
  *
  * @since 1.5
  * @author Doug Lea

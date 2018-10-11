@@ -36,9 +36,10 @@
 package com.wfs.concurrent;
 import java.util.*;
 import java.util.concurrent.locks.*;
+import sun.misc.Unsafe;
 
 /**
- * A thread-safe variant of {@link java.util.ArrayList} in which all mutative
+ * A thread-safe variant of {@link ArrayList} in which all mutative
  * operations (<tt>add</tt>, <tt>set</tt>, and so on) are implemented by
  * making a fresh copy of the underlying array.
  *
@@ -1324,11 +1325,11 @@ public class CopyOnWriteArrayList<E>
     private void resetLock() {
         UNSAFE.putObjectVolatile(this, lockOffset, new ReentrantLock());
     }
-    private static final sun.misc.Unsafe UNSAFE;
+    private static final Unsafe UNSAFE;
     private static final long lockOffset;
     static {
         try {
-            UNSAFE = sun.misc.Unsafe.getUnsafe();
+            UNSAFE = Unsafe.getUnsafe();
             Class k = CopyOnWriteArrayList.class;
             lockOffset = UNSAFE.objectFieldOffset
                 (k.getDeclaredField("lock"));

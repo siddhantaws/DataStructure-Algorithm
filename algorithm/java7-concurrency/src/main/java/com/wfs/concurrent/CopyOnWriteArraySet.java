@@ -37,7 +37,7 @@ package com.wfs.concurrent;
 import java.util.*;
 
 /**
- * A {@link java.util.Set} that uses an internal {@link CopyOnWriteArrayList}
+ * A {@link Set} that uses an internal {@link CopyOnWriteArrayList}
  * for all of its operations.  Thus, it shares the same basic properties:
  * <ul>
  *  <li>It is best suited for applications in which set sizes generally

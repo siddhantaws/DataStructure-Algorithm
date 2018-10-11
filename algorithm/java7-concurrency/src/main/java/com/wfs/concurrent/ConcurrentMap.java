@@ -37,7 +37,7 @@ package com.wfs.concurrent;
 import java.util.Map;
 
 /**
- * A {@link java.util.Map} providing additional atomic
+ * A {@link Map} providing additional atomic
  * <tt>putIfAbsent</tt>, <tt>remove</tt>, and <tt>replace</tt> methods.
  *
  * <p>Memory consistency effects: As with other concurrent

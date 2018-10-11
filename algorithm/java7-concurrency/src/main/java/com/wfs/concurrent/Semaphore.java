@@ -36,6 +36,7 @@
 package com.wfs.concurrent;
 import java.util.*;
 import java.util.concurrent.locks.*;
+import java.util.concurrent.atomic.*;
 
 /**
  * A counting semaphore.  Conceptually, a semaphore maintains a set of
