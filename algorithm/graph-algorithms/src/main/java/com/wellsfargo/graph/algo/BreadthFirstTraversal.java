@@ -25,12 +25,10 @@ public class BreadthFirstTraversal<K> {
         return  getBFS();
     }
 
-    private List<K> getBFS()
-    {
+    private List<K> getBFS(){
         queue.add(graph.getVertex(startingVertex));
         queue.peek().setVisited(true);
-        while(!queue.isEmpty())
-        {
+        while(!queue.isEmpty()){
             bfsvalues.add((K)queue.peek().getData());
             Graph.Vertex vertex =queue.poll();
             addAllAdjVertex(vertex);

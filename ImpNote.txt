@@ -8,3 +8,8 @@ Tree
 6)LCA using segment Tree and Sparse tree 
 7)LCA usinf dynamic programming 
 8)Height of Binary Tree represented by Parent array https://www.geeksforgeeks.org/find-height-binary-tree-represented-parent-array/
+
+
+
+Heap
+----

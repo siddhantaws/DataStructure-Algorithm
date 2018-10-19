@@ -16,10 +16,12 @@ public class CycleInDirectedGraph<E> {
     public CycleInDirectedGraph(Graph<E> graph) {
         this.graph = graph;
         this.stackPlusMapDataStructure=new StackPlusMapDataStructure();
-        Iterator<Graph.Vertex<E>> iterator = graph.getAllVertex().iterator();
+        /*Iterator<Graph.Vertex<E>> iterator = graph.getAllVertex().iterator();
         while(iterator.hasNext())
-            stackPlusMapDataStructure.push(iterator.next());
+            stackPlusMapDataStructure.push(iterator.next());*/
     }
+
+
 }
 class StackPlusMapDataStructure<E> extends Stack<E>{
 
