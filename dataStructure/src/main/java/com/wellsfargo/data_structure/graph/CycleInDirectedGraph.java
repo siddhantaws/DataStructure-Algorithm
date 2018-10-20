@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class CycleInDirectedGraph<K> {
+public class CycleInDirectedGraph<K,V extends Comparable> {
 
-    private Graph<K> graph;
+    private Graph<K,V> graph;
 
     private Map<Graph.Vertex<K>, Graph.Vertex<K>> startSet  , whiteSet , graySet;
 
-    public CycleInDirectedGraph(Graph<K> graph) {
+    public CycleInDirectedGraph(Graph<K,V> graph) {
         this.graph = graph;
         this.startSet =new ConcurrentHashMap<>();
         this.whiteSet = new ConcurrentHashMap<>();
@@ -50,7 +50,7 @@ public class CycleInDirectedGraph<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph1=new Graph<>(true);
+        Graph<String,Integer> graph1=new Graph<>(true);
         graph1.add("A","B",10);
         graph1.add("B","C",10);
         graph1.add("F","C",10);
@@ -58,7 +58,7 @@ public class CycleInDirectedGraph<K> {
         graph1.add("F","D",10);
         graph1.add("D","E",10);
         graph1.add("E","A",10);
-        CycleInDirectedGraph<String> cycle=new CycleInDirectedGraph(graph1);
+        CycleInDirectedGraph<String,Integer> cycle=new CycleInDirectedGraph(graph1);
         System.out.println(cycle.hasContainCycle());
     }
 }

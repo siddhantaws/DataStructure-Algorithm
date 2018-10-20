@@ -5,9 +5,9 @@ import java.util.*;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class TopoLogicalSort<K> {
+public class TopoLogicalSort<K, V extends Comparable> {
 
-    private Graph<K> graph;
+    private Graph<K,V> graph;
 
     private Set<K> visitedSet;
 
@@ -15,7 +15,7 @@ public class TopoLogicalSort<K> {
 
     private List<K> topologicallySortedList;
 
-    public TopoLogicalSort(Graph<K> graph) {
+    public TopoLogicalSort(Graph<K,V> graph) {
         this.graph = graph;
         this.visitedSet=new HashSet<>();
         this.sortedStack=new Stack<>();
@@ -45,7 +45,7 @@ public class TopoLogicalSort<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph1=new Graph<>();
+        Graph<String,Integer> graph1=new Graph<>();
         graph1.add("A","B",10);
         graph1.add("B","C",10);
         graph1.add("F","C",10);
@@ -53,7 +53,7 @@ public class TopoLogicalSort<K> {
         graph1.add("F","D",10);
         graph1.add("D","E",10);
         graph1.add("E","A",10);
-        TopoLogicalSort<String> logicalSort =new TopoLogicalSort<>(graph1);
+        TopoLogicalSort<String,Integer> logicalSort =new TopoLogicalSort<>(graph1);
         System.out.println(logicalSort.topologicalSortedVertex());
     }
 }

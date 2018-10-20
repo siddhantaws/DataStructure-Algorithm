@@ -7,14 +7,14 @@ import java.util.Stack;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class DepthFirstSearch<K> {
+public class DepthFirstSearch<K, V extends Comparable> {
 
-    private Graph<K> graph;
+    private Graph<K,V> graph;
     private List<K> dfsList;
     private K startVertex;
     Stack<K> stack;
 
-    public DepthFirstSearch(Graph<K> graph, K startVertex) {
+    public DepthFirstSearch(Graph<K,V> graph, K startVertex) {
         this.graph = graph;
         this.startVertex = startVertex;
         this.dfsList = new ArrayList<>();
@@ -42,7 +42,7 @@ public class DepthFirstSearch<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph1 = new Graph<>();
+        Graph<String,Integer> graph1 = new Graph<>();
         graph1.add("A", "B", 10);
         graph1.add("B", "C", 10);
         graph1.add("C", "F", 10);
@@ -50,7 +50,7 @@ public class DepthFirstSearch<K> {
         graph1.add("F", "D", 10);
         graph1.add("D", "E", 10);
         graph1.add("E", "A", 10);
-        DepthFirstSearch<String> firstSearch = new DepthFirstSearch(graph1, "A");
+        DepthFirstSearch<String,Integer> firstSearch = new DepthFirstSearch(graph1, "A");
         firstSearch.dfs();
         firstSearch.printDFS();
     }

@@ -5,9 +5,9 @@ import java.util.*;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class ArticulationPointsGraphAlgorithm<K> {
+public class ArticulationPointsGraphAlgorithm<K,V extends Comparable> {
 
-    private Graph<K> graph;
+    private Graph<K,V> graph;
 
     private Set<K> visitedSet;
 
@@ -24,7 +24,7 @@ public class ArticulationPointsGraphAlgorithm<K> {
         }
     }
 
-    public ArticulationPointsGraphAlgorithm(Graph<K> graph) {
+    public ArticulationPointsGraphAlgorithm(Graph<K,V> graph) {
         this.graph = graph;
         this.visitedSet = new HashSet<>();
         this.map = new HashMap<>();
@@ -62,11 +62,11 @@ public class ArticulationPointsGraphAlgorithm<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph =new Graph<>();
+        Graph<String,Integer> graph =new Graph<>();
         graph.add("A","B", 1);graph.add("A","C", 1);graph.add("D","E", 1);
         graph.add("B","C", 1);graph.add("C","D", 1);graph.add("G","E", 1);
         graph.add("G","F", 1);graph.add("F","E", 1);graph.add("H","F", 1);
-        ArticulationPointsGraphAlgorithm<String> pointsGraphAlgorithm =new ArticulationPointsGraphAlgorithm(graph);
+        ArticulationPointsGraphAlgorithm<String,Integer> pointsGraphAlgorithm =new ArticulationPointsGraphAlgorithm(graph);
         for(String s:pointsGraphAlgorithm.getArticulationPoint("D")){
             System.out.println(s);
         }

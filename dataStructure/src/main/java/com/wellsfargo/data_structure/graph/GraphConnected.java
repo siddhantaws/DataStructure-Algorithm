@@ -6,13 +6,13 @@ import java.util.Set;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class GraphConnected<K> {
+public class GraphConnected<K,V extends Comparable> {
 
-    private Graph<K> graph;
+    private Graph<K,V> graph;
 
     private Set<K> totalVertex ;
 
-    public GraphConnected(Graph<K> graph) {
+    public GraphConnected(Graph<K,V> graph) {
         this.graph = graph;
         this.totalVertex =new HashSet<>();
         for(Graph.Vertex<K> vertex :graph.getAllVertices())
@@ -34,7 +34,7 @@ public class GraphConnected<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph =new Graph<>();
+        Graph<String,Integer> graph =new Graph<>();
         graph.add("A","B",10);
         graph.add("B","C",10);
         graph.add("C","D",10);
@@ -42,7 +42,7 @@ public class GraphConnected<K> {
         graph.add("D","F",10);
         /*graph.add("E","C",10);
         graph.add("C","A",10);*/
-        GraphConnected<String> stringGraphConnected =new GraphConnected(graph);
+        GraphConnected<String,Integer> stringGraphConnected =new GraphConnected(graph);
         System.out.println(stringGraphConnected.isConnected());
     }
 }

@@ -8,12 +8,12 @@ import java.util.Queue;
 /**
  * @author Siddhanta Kumar Pattnaik
  */
-public class BreadthFirstSearch<K> {
-    private Graph<K> graph ;
+public class BreadthFirstSearch<K,V extends Comparable> {
+    private Graph<K,V> graph ;
     private  List<K> bfsList;
     private  K startVertex ;
 
-    public BreadthFirstSearch(Graph<K> graph , K startVertex) {
+    public BreadthFirstSearch(Graph<K,V> graph , K startVertex) {
         this.graph = graph;
         this.bfsList =new ArrayList<>();
         this.startVertex =startVertex;
@@ -42,7 +42,7 @@ public class BreadthFirstSearch<K> {
     }
 
     public static void main(String[] args) {
-        Graph<String> graph1=new Graph<>();
+        Graph<String,Integer> graph1=new Graph<>();
         graph1.add("A","B",10);
         graph1.add("B","C",10);
         graph1.add("C","F",10);
@@ -50,7 +50,7 @@ public class BreadthFirstSearch<K> {
         graph1.add("F","D",10);
         graph1.add("D","E",10);
         graph1.add("E","A",10);
-        BreadthFirstSearch<String> firstSearch =new BreadthFirstSearch(graph1 ,"A");
+        BreadthFirstSearch<String,Integer> firstSearch =new BreadthFirstSearch(graph1 ,"A");
         firstSearch.bfs();
         firstSearch.printBFS();
     }
