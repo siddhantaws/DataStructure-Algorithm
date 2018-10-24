@@ -22,7 +22,7 @@ public class HamiltonianCycle {
 
     public Map getHamiltonianPath()
     {
-        sourceVertex=vertices.get(0);
+        sourceVertex = vertices.get(0);
         hamiltonianPath.put(sourceVertex ,sourceVertex);
         return getHamiltonianPath(sourceVertex) ?  hamiltonianPath : null;
     }
