@@ -20,6 +20,14 @@ public class Graph<K ,V extends Comparable> {
         this.isDirected = isDirected;
     }
 
+
+    public Edge<K,V> getEdge(K v1 , K v2){
+        Vertex<K> vertex =mapOfVertex.get(v1);
+        if(vertex !=null)
+            return vertex.getEdge().get(mapOfVertex.get(v2));
+        throw new NullPointerException();
+    }
+
     public void add(K k1, K k2, V weight) {
         Edge<K,V> edge = new Edge<>(addVertex(k1), addVertex(k2), isDirected, weight);
         edges.add(edge);
@@ -80,10 +88,17 @@ public class Graph<K ,V extends Comparable> {
 
         private List<Edge> edges = new ArrayList<>();
 
+        private Map<Vertex<K> , Edge> edge =new HashMap();
+
         private List<Vertex<K>> connectedVertex = new ArrayList<>();
+
+        public Map<Vertex<K>, Edge> getEdge() {
+            return edge;
+        }
 
         public void addEdge(Edge edge) {
             this.edges.add(edge);
+            this.edge.put(edge.getV1() == this ? edge.getV1() : edge.v2, edge);
         }
 
         public List<Edge> getEdges() {
