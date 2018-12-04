@@ -36,14 +36,26 @@ public class MinimumEditDistance
 
         for(int i=1;i<tempArr.length;i++)
             for(int j=1;j<tempArr[i].length;j++)
-                if(sourceString.charAt(i-1) == sourceString.charAt(j-1))
-                    tempArr[i][j] = sourceString.charAt(i-1) == sourceString.charAt(j-1) ? Math.min( Math.min(tempArr[i-1][j] , tempArr[i-1][j-1]) , tempArr[i][j-1] ) :  Math.min( Math.min(tempArr[i-1][j] , tempArr[i-1][j-1]) , tempArr[i][j-1] )+1 ;
-        System.out.printf("1");
+                if(destiString.charAt(i-1) == sourceString.charAt(j-1))
+                    tempArr[i][j] = tempArr[i-1][j-1];
+                else
+                    tempArr[i][j] = 1 + min(tempArr[i][j-1], // Insert
+                            tempArr[i-1][j], // Remove
+                            tempArr[i-1][j-1]); // Replace
+        System.out.println(tempArr[tempArr.length-1][tempArr[0].length-1]);
     }
+
+    int min(int x,int y,int z)
+    {
+        if (x <= y && x <= z) return x;
+        if (y <= x && y <= z) return y;
+        else return z;
+    }
+
 
     public static void main(String[] args)
     {
-        MinimumEditDistance  minimumEditDistance =new MinimumEditDistance("abcdef" , "agced");
+        MinimumEditDistance  minimumEditDistance =new MinimumEditDistance("geek" , "gesek");
         minimumEditDistance.getMinEditDistance();
     }
 }

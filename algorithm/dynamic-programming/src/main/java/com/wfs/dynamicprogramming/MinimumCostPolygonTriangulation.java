@@ -29,8 +29,12 @@ public class MinimumCostPolygonTriangulation {
 
         // Find minimum triangulation by considering all
         for (int k=i+1; k<j; k++)
+        {
+            System.out.println( i +"\t"+ j+"\t"+k );
             res = min(res, (minimumCostTringulation(points, i, k) + minimumCostTringulation(points, k, j) +
                     cost(points, i, k, j)));
+        }
+
         return  res;
     }
 
@@ -72,9 +76,9 @@ public class MinimumCostPolygonTriangulation {
     }
 
     public static void main(String[] args) {
-        Point points[] = new Point[]{ new Point(0, 0), new Point(1, 0), new Point(2, 1), new Point(1, 2), new Point(0, 2)};
+        Point points[] = new Point[]{ new Point(0, 0), new Point(0, 2), new Point(1, 2),new Point(2, 0)};
         MinimumCostPolygonTriangulation minCost=new MinimumCostPolygonTriangulation();
-        System.out.println(minCost.minimumCostTringulationUsingDP(points , points.length));
+        System.out.println(minCost.minimumCostTringulation(points , 0 , points.length-1));
     }
 }
 

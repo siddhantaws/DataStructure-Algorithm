@@ -29,6 +29,8 @@ public class FibonacciNumber
         return  fibSeries[n];
     }
 
+
+
     public int buttomUp(int num)
     {
         reset();

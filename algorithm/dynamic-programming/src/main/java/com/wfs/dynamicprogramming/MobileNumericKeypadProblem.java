@@ -36,7 +36,7 @@ public class MobileNumericKeypadProblem {
                 for (j = 0; j < 3; j++)   // Loop on keypad column
                 {
                     // Process for 0 to 9 digits
-                    if (keyPad[i][j] != -1 && keyPad[i][j] != -1) {
+                    if (keyPad[i][j] != -1) {
                         // Here we are counting the numbers starting with
                         // digit keypad[i][j] and of length k keypad[i][j]
                         // will become 1st digit, and we need to look for
@@ -52,7 +52,7 @@ public class MobileNumericKeypadProblem {
                             ro = i + row[move];
                             co = j + col[move];
                             if (ro >= 0 && ro <= 3 && co >= 0 && co <= 2 &&
-                                    keyPad[ro][co] != -1 && keyPad[ro][co] != -1) {
+                                    keyPad[ro][co] != -1) {
                                 nextNum = keyPad[ro][co] - 0;
                                 count[num][k] += count[nextNum][k - 1];
                             }
@@ -71,7 +71,7 @@ public class MobileNumericKeypadProblem {
 
     public static void main(String[] args) {
         int keypad[][] = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {-1, 0, -1}};
-        MobileNumericKeypadProblem mobileNumericKeypadProblem = new MobileNumericKeypadProblem(keypad, 1);
+        MobileNumericKeypadProblem mobileNumericKeypadProblem = new MobileNumericKeypadProblem(keypad, 2);
         System.out.println(mobileNumericKeypadProblem.count());
     }
 
