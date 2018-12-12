@@ -27,8 +27,7 @@ public class SearchInARowWiseAndColumnWiseSorted2DArray {
             if (i != toRow || j != fromCol)
                 search(key, fromRow, i, j, toCol);
 
-            // Special case for iteration with 1*2 matrix
-            // mat[i][j] and mat[i][j+1] are only two elements.
+            // Special case for iteration with 1*2 matrix mat[i][j] and mat[i][j+1] are only two elements.
             // So just check second element
             if (fromRow == toRow && fromCol + 1 == toCol)
                 if (matrix[fromRow][toCol] == key){
@@ -37,8 +36,7 @@ public class SearchInARowWiseAndColumnWiseSorted2DArray {
                 }
 
 
-            // If middle key is lesser then search lower horizontal
-            // matrix and right hand side matrix
+            // If middle key is lesser then search lower horizontal matrix and right hand side matrix
             if (matrix[i][j] < key) {
                 // search lower horizontal if such matrix exists
                 if (i + 1 <= toRow)

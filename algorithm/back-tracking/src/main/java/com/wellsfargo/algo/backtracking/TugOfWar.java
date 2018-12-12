@@ -53,20 +53,14 @@ public class TugOfWar {
                     soln[i] = curr_elements[i];
             }
         }
-        else
-        {
-            // consider the cases where current
-            // element is included in the
-            // solution
+        else {
+            // consider the cases where current element is included in the solution
             TOWUtil(arr, n, curr_elements,
                     no_of_selected_elements,
                     soln, sum, curr_sum,
                     curr_position + 1);
         }
-
-        // removes current element before
-        // returning to the caller of this
-        // function
+        // removes current element before returning to the caller of this function
         curr_elements[curr_position] = false;
     }
 
@@ -75,13 +69,10 @@ public class TugOfWar {
     {
         int n = arr.length;
 
-        // the boolen array that contains the
-        // inclusion and exclusion of an element
-        // in current set. The number excluded
-        // automatically form the other set
+        // the boolen array that contains the inclusion and exclusion of an element
+        // in current set. The number excluded  automatically form the other set
         boolean[] curr_elements = new boolean[n];
-        // The inclusion/exclusion array for
-        // final solution
+        // The inclusion/exclusion array for final solution
         boolean[] soln = new boolean[n];
 
         minDiff = Integer.MAX_VALUE;
@@ -92,8 +83,7 @@ public class TugOfWar {
             sum += arr[i];
             curr_elements[i] = soln[i] = false;
         }
-        // Find the solution using recursive
-        // function TOWUtil()
+        // Find the solution using recursive function TOWUtil()
         TOWUtil(arr, n, curr_elements, 0,
                 soln, sum, 0, 0);
         // Print the solution

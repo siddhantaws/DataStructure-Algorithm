@@ -38,25 +38,30 @@ public class KnightsTourProblem {
             return true;
         else
         {
+            boolean findPath =false;
             points.addLast(new Points(x ,y));
-            if(!getKnightTourRoute(x-2 , y-1))
+            findPath = getKnightTourRoute(x-2 , y-1);
+            points.removeLast();
+
+            if(!findPath) {
                 points.removeLast();
-            if(!getKnightTourRoute(x-2 , y+1))
+                findPath = getKnightTourRoute(x-2 , y+1);
+            }
+
+            findPath = getKnightTourRoute(x-1 , y-2);
                 points.removeLast();
-            if(!getKnightTourRoute(x-1 , y-2))
+            findPath = getKnightTourRoute(x+1 , y-2);
                 points.removeLast();
-            if(!getKnightTourRoute(x+1 , y-2))
+            findPath = getKnightTourRoute(x+2 , y-1);
                 points.removeLast();
-            if(!getKnightTourRoute(x+2 , y-1))
+            findPath = getKnightTourRoute(x+2 , y+1);
                 points.removeLast();
-            if(!getKnightTourRoute(x+2 , y+1))
+            findPath = getKnightTourRoute(x+1 , y+2);
                 points.removeLast();
-            if(!getKnightTourRoute(x+1 , y+2))
+            findPath = getKnightTourRoute(x-1 , y+2);
                 points.removeLast();
-            if(!getKnightTourRoute(x-1 , y+2))
-                points.removeLast();
+            return findPath;
         }
-        return false;
     }
 
 
