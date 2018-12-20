@@ -27,8 +27,7 @@ public class Aho_Corasick_Algo{
         //tries.getRootNode().getCharacterNodeMap();
     }
 
-    private void constructFailureNode()
-    {
+    private void constructFailureNode(){
 
     }
 }
