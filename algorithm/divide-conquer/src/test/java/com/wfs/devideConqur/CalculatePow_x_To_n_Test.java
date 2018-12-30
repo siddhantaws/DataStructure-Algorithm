@@ -1,11 +1,14 @@
+/*
 package com.wfs.devideConqur;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+*/
 /**
  * Created by Suryasnata on 5/24/2017.
- */
+ *//*
+
 public class CalculatePow_x_To_n_Test {
 
     @Test
@@ -19,3 +22,4 @@ public class CalculatePow_x_To_n_Test {
         Assert.assertEquals(pow_x_to_n.getPowXToN() , 9509900499l);
     }
 }
+*/
