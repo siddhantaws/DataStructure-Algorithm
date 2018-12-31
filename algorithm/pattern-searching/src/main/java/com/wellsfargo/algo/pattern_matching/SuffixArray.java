@@ -49,7 +49,7 @@ public class SuffixArray {
 
         // Store suffixes and their indexes in an array of structures.
         // The structure is needed to sort the suffixes alphabatically
-        // and maintain their old indexes while sorting
+        // and maintain their old indexes while searching_sorting
 
         for (int i = 0; i <= n; i++) {
             suffixArray.get(i).index = i;

@@ -1,4 +1,4 @@
-package com.wfs.sorting;
+package com.wfs.searching_sorting;
 
 import java.util.Comparator;
 
@@ -53,7 +53,7 @@ public class TimSort<T> {
      * can grow to accommodate demand.
      *
      * Unlike Tim's original C version, we do not allocate this much storage
-     * when sorting smaller arrays.  This change was required for performance.
+     * when searching_sorting smaller arrays.  This change was required for performance.
      */
     private static final int INITIAL_TMP_STORAGE_LENGTH = 256;
 
@@ -115,7 +115,7 @@ public class TimSort<T> {
          * Allocate runs-to-be-merged stack (which cannot be expanded).  The
          * stack length requirements are described in listsort.txt.  The C
          * version always uses the same stack length (85), but this was
-         * measured to be too expensive when sorting "mid-sized" arrays (e.g.,
+         * measured to be too expensive when searching_sorting "mid-sized" arrays (e.g.,
          * 100 elements) in Java.  Therefore, we use smaller (but sufficiently
          * large) stack lengths for smaller arrays.  The "magic numbers" in the
          * computation below must be changed if MIN_MERGE is decreased.  See
@@ -203,7 +203,7 @@ public class TimSort<T> {
 
     /**
      * Sorts the specified portion of the specified array using a binary
-     * insertion sort.  This is the best method for sorting small numbers
+     * insertion sort.  This is the best method for searching_sorting small numbers
      * of elements.  It requires O(n log n) compares, but O(n^2) data
      * movement (worst case).
      *
