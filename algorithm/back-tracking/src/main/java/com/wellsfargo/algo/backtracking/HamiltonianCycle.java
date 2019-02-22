@@ -57,8 +57,8 @@ public class HamiltonianCycle {
            (3)-------(4)    */
 
         Graph graph =new Graph();
-        graph.addEdge(0,1 , 0);graph.addEdge(1,2 , 0);graph.addEdge(2,4,0);
-        //graph.addEdge(4,3,0);
+        graph.addEdge(0,1 , 0);graph.addEdge(1,2 , 0);//graph.addEdge(2,4,0);
+        graph.addEdge(4,3,0);
         graph.addEdge(3,0,0);graph.addEdge(3,1,0);graph.addEdge(1,4,0);
         HamiltonianCycle hamiltonianCycle =new HamiltonianCycle(graph);
         Map map=hamiltonianCycle.getHamiltonianPath();

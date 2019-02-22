@@ -17,35 +17,7 @@ public class CheckIfGivenStringIsSumString {
     }
     // this is function for finding sum of two  numbers as string
     private String string_sum(String str1, String str2) {
-        if(str1.isEmpty() || str2.isEmpty()) {
-            return str1.isEmpty() ? str2 : str1;
-        }
-        if (str1.length() < str2.length()) {
-            String tmp = str1;
-            str1 = str2;
-            str2 = str1;
-        }
-        int m = str1.length();
-        int n = str2.length();
-        String ans = "";
-        // sum the str2 with str1
-        int carry = 0;
-        String s1[] = convertToStringArray(str1);
-        String s2[] = convertToStringArray(str2);
-        for (int i = 0; i < n; i++) {
-            // Sum of current digits
-            int ds = (Integer.parseInt(s1[m - 1 - i]) + Integer.parseInt(s2[n - 1 - i]) + carry) % 10;
-            carry = (Integer.parseInt(s1[m - 1 - i]) + Integer.parseInt(s2[n - 1 - i]) + carry) / 10;
-            ans = ds + ans;
-        }
-        for (int i = n; i < m; i++) {
-            int ds = (Integer.parseInt(s1[m - 1 - i]) + carry) % 10;
-            carry = (Integer.parseInt(s1[m - 1 - i]) + carry) / 10;
-            ans = ds + ans;
-        }
-        if (carry > 0)
-            ans = carry + ans;
-        return ans;
+        return (new Integer(str1)+new Integer(str2))+"";
     }
 
     // Returns true of two substrings of ginven lengths of str[beg..] can cause a positive result.

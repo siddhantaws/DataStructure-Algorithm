@@ -32,7 +32,7 @@ public class PowerSetInLexicographicOrder {
     }
 
     public static void main(String[] args) {
-        PowerSetInLexicographicOrder set =new PowerSetInLexicographicOrder("abc");
+        PowerSetInLexicographicOrder set =new PowerSetInLexicographicOrder("abcd");
         set.genLexicoGraphOrder();
     }
 }

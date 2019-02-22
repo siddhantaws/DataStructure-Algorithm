@@ -34,7 +34,7 @@ public class MatchPatternStringWithoutUsingRegularExpressions {
         if (i == n || j == m)
             return false;
         // read next character from the pattern
-        char ch = pat.toCharArray()[j];
+        char ch = pat.charAt(j);
         // if character is seen before
         if (map.containsKey(ch)) {
             String s = map.get(ch);
@@ -43,15 +43,13 @@ public class MatchPatternStringWithoutUsingRegularExpressions {
             String subStr = str.substring(i, i + len);
             // if next len characters of string str // don't match with s, return false
             if (subStr.equals(s))
-                return false;
+                return true;
             // if it matches, recurse for remaining characters
             return patternMatchUtil(i + len, j + 1, map);
         }
-        // If character is seen for first time, try out all
-        // remaining characters in the string
+        // If character is seen for first time, try out all remaining characters in the string
         for (int len = 1; len <= n - i; len++) {
-            // consider substring that starts at position i
-            // and spans len characters and add it to map
+            // consider substring that starts at position i and spans len characters and add it to map
             map.put(ch, str.substring(i, i + len));
             // see if it leads to the solution
             if (patternMatchUtil(i + len, j + 1, map))
@@ -74,7 +72,6 @@ public class MatchPatternStringWithoutUsingRegularExpressions {
         for (Map.Entry<Character, String> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "\t" + entry.getValue());
         }
-        // return result
         return res;
     }
 

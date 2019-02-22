@@ -29,6 +29,10 @@ public class DisJointSet<K> {
         nodeMap.put(k, node);
     }
 
+    public K findSetElement(K k){
+        return findSet(nodeMap.get(k)).getK();
+    }
+
 
     public Node<K> findSet(K k){
         return findSet(nodeMap.get(k));
@@ -68,6 +72,10 @@ public class DisJointSet<K> {
 
         public Node(K k) {
             this.k = k;
+        }
+
+        public K getK() {
+            return k;
         }
 
         @Override
