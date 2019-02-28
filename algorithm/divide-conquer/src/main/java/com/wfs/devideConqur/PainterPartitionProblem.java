@@ -58,8 +58,7 @@ public class PainterPartitionProblem {
             // find better optimum in lower half here mid is included because we may not get anything better
             if (requiredPainters <= k)
                 hi = mid;
-                // find better optimum in upper half here mid is excluded because it gives required Painters > k, which is invalid
-            else
+            else// find better optimum in upper half here mid is excluded because it gives required Painters > k, which is invalid
                 lo = mid + 1;
         }
         // required

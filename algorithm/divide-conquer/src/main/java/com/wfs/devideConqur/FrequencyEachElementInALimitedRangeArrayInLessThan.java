@@ -10,6 +10,8 @@ public class FrequencyEachElementInALimitedRangeArrayInLessThan {
     public FrequencyEachElementInALimitedRangeArrayInLessThan(int arr[]) {
         this.arr = arr;
         this.integers = new ArrayList<>();
+        for(int i=0; i<arr.length;i++)
+            integers.add(0);
     }
 
     public List getFrequency() {

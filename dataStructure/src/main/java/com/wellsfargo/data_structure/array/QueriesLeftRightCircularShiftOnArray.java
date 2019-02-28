@@ -44,9 +44,9 @@ public class QueriesLeftRightCircularShiftOnArray {
     }
 
     public static void main(String[] args) {
-        int a[] = { 1, 2, 3, 4, 5 };
+        int a[] = { 1, 2, 3, 4, 5 ,6,7};
         QueriesLeftRightCircularShiftOnArray onArray =new QueriesLeftRightCircularShiftOnArray(a);
-        onArray.querytype1(2);
-        onArray.querytype3(2,4);
+        onArray.querytype1(4);
+        onArray.querytype3(0,4);
     }
 }

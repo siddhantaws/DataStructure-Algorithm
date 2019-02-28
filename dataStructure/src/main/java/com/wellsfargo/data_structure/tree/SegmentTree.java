@@ -55,7 +55,7 @@ public class SegmentTree<K extends Comparable> {
     }
 
     public static void main(String[] args) {
-        SegmentTree<Integer> segmentTree=new SegmentTree<Integer>(new Integer[]{1,2,4,5,17 ,3});
+        SegmentTree<Integer> segmentTree=new SegmentTree<Integer>(new Integer[]{1,2,4,5,17 ,3,25,9});
         segmentTree.constructSegmentTree();
     }
 }
