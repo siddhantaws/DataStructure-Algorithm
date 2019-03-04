@@ -29,6 +29,13 @@ public class RearrangeArrayMaximumMinimumForm {
         // array elements back to it's original form
         for (int i = 0; i < arr.length - 1; i++)
             arr[i] = arr[i] / max_elem;
+
+        print();
+    }
+
+    private void print(){
+        for(int i = 0; i < arr.length - 1; i++)
+            System.out.print(arr[i]+" ");
     }
 
     public static void main(String[] args) {
