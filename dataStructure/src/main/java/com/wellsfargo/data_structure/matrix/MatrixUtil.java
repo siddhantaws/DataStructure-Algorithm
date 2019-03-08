@@ -8,19 +8,21 @@ public class MatrixUtil {
     public static void print(int arr[][]) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-                System.out.print(arr[i][j] + " ");
+                System.out.print(arr[i][j] + "\t");
             }
             System.out.println("");
         }
+        System.out.println("");
     }
 
     public static void print(char arr[][]) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-                System.out.print(arr[i][j] + " ");
+                System.out.print(arr[i][j] + "\t");
             }
             System.out.println("");
         }
+        System.out.println("");
     }
 
     public static void swap( int arr[][] ,int i1,int j1, int i2, int j2){

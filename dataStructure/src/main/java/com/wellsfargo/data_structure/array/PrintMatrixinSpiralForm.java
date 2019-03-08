@@ -29,7 +29,7 @@ public class PrintMatrixinSpiralForm {
                 System.out.print(arr[i][col-1]+" ");
             col--;
             if(row1<row){
-                for(int i=col-1;i>=1;i--)
+                for(int i=col-1;i>=col1;i--)
                     System.out.print(arr[row-1][i]+" ");
                 row--;
             }
