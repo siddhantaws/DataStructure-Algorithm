@@ -42,15 +42,10 @@ public class ConstructFullKAryTreeFromPreorderTraversal {
         if (nNode == null) {
             return null;
         }
-
-        // For adding k children to a node
         for (int i = 0; i < k; i++) {
-
-            // Check if ind is in range of array
-            // Check if height of the tree is greater than 1
+            // Check if ind is in range of array  Check if height of the tree is greater than 1
             if (ind < n - 1 && h > 1) {
                 ind++;
-
                 // Recursively add each child
                 nNode.child.add(buildKaryTree(n, k, h - 1));
             }

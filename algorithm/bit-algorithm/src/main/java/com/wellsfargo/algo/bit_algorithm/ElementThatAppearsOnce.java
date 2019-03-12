@@ -58,7 +58,7 @@ public class ElementThatAppearsOnce {
     }
 
     public static void main(String[] args) {
-        ElementThatAppearsOnce once = new ElementThatAppearsOnce(new int[]{3,3,2,3});
+        ElementThatAppearsOnce once = new ElementThatAppearsOnce(new int[]{5,5,5,8});
         System.out.println(once.getSingle2());
     }
 }

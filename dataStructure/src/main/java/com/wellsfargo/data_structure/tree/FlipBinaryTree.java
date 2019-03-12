@@ -26,10 +26,11 @@ public class FlipBinaryTree {
         Node root = newNode(1);
         root.left = newNode(2);
         root.right = newNode(3);
-        root.right.left = newNode(4);
-        root.right.right = newNode(5);
-
-        root = flipBinaryTree(root);
+        root.left.left =newNode(4);
+        root.left.right =newNode(5);
+        root.left.left.left = newNode(8);
+        root.left.left.right = newNode(9);
+        FlipBinaryTree.flipBinaryTree(root);
 
     }
 
