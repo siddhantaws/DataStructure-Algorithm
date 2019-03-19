@@ -162,6 +162,8 @@ public class Find_LCABinary_Tree_Using_RMQ {
         root.left.right.left = new Node(8);
         root.left.right.right = new Node(9);
         int u = 4, v = 9;
+        Find_LCABinary_Tree_Using_RMQ treeUsingRmq =new Find_LCABinary_Tree_Using_RMQ(root);
+        treeUsingRmq.findLCA(root,u,v);
     }
 
     class St_class {

@@ -59,10 +59,8 @@ public class MergeKSortedLinkedLists {
             int i = 0, j = last;
             while (i < j) {// (i, j) forms a pair
                 // merge List i with List j and store // merged list in List i
-                arr[i] = SortedMerge(arr[i], arr[j]);
-                // consider next pair
-                i++; j--;
-                // If all pairs are merged, update last
+                arr[i] = SortedMerge(arr[i], arr[j]);// consider next pair
+                i++; j--;// If all pairs are merged, update last
                 if (i >= j)
                     last = j;
             }
