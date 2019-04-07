@@ -18,12 +18,12 @@ public class PrintAllPermutationsInLexicographicOrder {
         for(int i=0;i<text.toCharArray().length;i++)
             str[i] = text.charAt(i);
         this.size = str.length;
-        /*Arrays.sort(str, new Comparator<Character>() {
+        Arrays.sort(str, new Comparator<Character>() {
             @Override
             public int compare(Character o1, Character o2) {
                 return o1.compareTo(o2);
             }
-        });*/
+        });
     }
     private int compare(String a, String b) {
         return a.compareTo(b);
@@ -81,7 +81,7 @@ public class PrintAllPermutationsInLexicographicOrder {
     }
 
     public static void main(String[] args) {
-        PrintAllPermutationsInLexicographicOrder printAllPermutationsInLexicographicOrder =new PrintAllPermutationsInLexicographicOrder("476");
+        PrintAllPermutationsInLexicographicOrder printAllPermutationsInLexicographicOrder =new PrintAllPermutationsInLexicographicOrder("ABCDEF");
         printAllPermutationsInLexicographicOrder.sortedPermutations();
     }
 }
