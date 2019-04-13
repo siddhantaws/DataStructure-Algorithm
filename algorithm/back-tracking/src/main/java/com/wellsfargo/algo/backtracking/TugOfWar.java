@@ -20,16 +20,14 @@ public class TugOfWar {
         if (curr_position == n)
             return;
 
-        // checks that the numbers of elements left
-        // are not less than the number of elements
+        // checks that the numbers of elements left are not less than the number of elements
         // required to form the solution
         int numLeft = (n / 2 - no_of_selected_elements);
         int numSoln= n - curr_position;
         if (numLeft > numSoln)
             return;
 
-        // consider the cases when current element
-        // is not included in the solution
+        // consider the cases when current element is not included in the solution
         TOWUtil(arr, n, curr_elements,
                 no_of_selected_elements, soln, sum,
                 curr_sum, curr_position+1);
@@ -41,9 +39,7 @@ public class TugOfWar {
         // checks if a solution is formed
         if (no_of_selected_elements == n / 2)
         {
-            // checks if the solution formed is
-            // better than the best solution so
-            // far
+            // checks if the solution formed is better than the best solution so far
             if (Math.abs(sum / 2 - curr_sum) <
                     minDiff)
             {

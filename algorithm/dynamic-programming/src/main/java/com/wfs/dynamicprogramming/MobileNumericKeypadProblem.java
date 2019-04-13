@@ -69,10 +69,33 @@ public class MobileNumericKeypadProblem {
         return totalCount;
     }
 
+    public int getCount(){
+        int numArray[]=new int[10];
+        for(int i=0;i<numArray.length;i++)
+            numArray[i]=1;
+
+        for(int i=1;i<key;i++){
+            numArray[0] = numArray[0] + numArray[8];
+            numArray[1] = numArray[1] + numArray[2] + numArray[4];
+            numArray[2] = numArray[2] + numArray[1] + numArray[3] + numArray[5];
+            numArray[3] = numArray[3] + numArray[2] + numArray[6];
+            numArray[4] = numArray[4] + numArray[1] + numArray[5] + numArray[7];
+            numArray[5] = numArray[5] + numArray[2] + numArray[4] + numArray[8] + numArray[6];
+            numArray[6] = numArray[6] + numArray[3] + numArray[5] + numArray[9];
+            numArray[7] = numArray[7] + numArray[4] + numArray[8];
+            numArray[8] = numArray[8] + numArray[0] + numArray[5] + numArray[7] + numArray[9];
+            numArray[9] = numArray[9] + numArray[6] + numArray[8];
+        }
+        int count =0;
+        for(int i=0;i<numArray.length;i++)
+            count   =count +  numArray[i];
+        return count;
+    }
+
     public static void main(String[] args) {
         int keypad[][] = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {-1, 0, -1}};
         MobileNumericKeypadProblem mobileNumericKeypadProblem = new MobileNumericKeypadProblem(keypad, 2);
-        System.out.println(mobileNumericKeypadProblem.count());
+        System.out.println(mobileNumericKeypadProblem.getCount());
     }
 
 
