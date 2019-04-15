@@ -7,8 +7,8 @@ package com.wfs.dynamicprogramming;
  */
 public class LongestCommonSubsequence
 {
-    String str1 = "ABCDGHLQR";
-    String str2 = "AEDPHR";
+    String str1 = "abcabcaa";
+    String str2 = "acbacba";
 
     public LongestCommonSubsequence(String str1 , String str2) {
         this.str1 = str1;
