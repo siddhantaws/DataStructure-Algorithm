@@ -49,7 +49,7 @@ public class FiniteAutomata extends PatternMatch {
     }
 
     public static void main(String[] args) {
-        PatternMatch finiteAutomata = new FiniteAutomata("abxabcabcaby", "ababaca");
+        PatternMatch finiteAutomata = new FiniteAutomata("abxabcabcaby", "ACACAGA");
         finiteAutomata.match();
         System.out.println(finiteAutomata.getMatchningIndex());
     }

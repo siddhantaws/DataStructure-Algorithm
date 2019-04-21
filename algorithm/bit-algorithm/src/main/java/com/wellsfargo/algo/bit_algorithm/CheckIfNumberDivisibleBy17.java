@@ -6,6 +6,8 @@ package com.wellsfargo.algo.bit_algorithm;
 public class CheckIfNumberDivisibleBy17 {
 
     public static void main(String[] args) {
+        System.out.println( 0x1F);
+
         int n= 20;
         int y = Math.floorDiv(n ,8);
         int x = (n%8)/8;

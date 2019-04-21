@@ -17,16 +17,16 @@ public class ElementThatAppearsOnce {
     public int getSingle2(){
         int result = 0;  int x, sum;
         // Iterate through every bit
-        for(int i=0; i<32; i++) {
+        for(int i=0; i<2; i++) {
             // Find sum of set bits at ith position in all array elements
             sum = 0;
             x = (1 << i);
             for(int j=0; j<arr.length; j++) {
-                if((arr[j] & x) == 0)
+                if((arr[j] & x) != 0)
                     sum++;
             }
             // The bits with sum not multiple of 3, are the bits of element with single occurrence.
-            if ((sum % 3) == 0)
+            if ((sum % 3) != 0)
                 result |= x;
         }
         return result;
@@ -58,7 +58,7 @@ public class ElementThatAppearsOnce {
     }
 
     public static void main(String[] args) {
-        ElementThatAppearsOnce once = new ElementThatAppearsOnce(new int[]{5,5,5,8});
+        ElementThatAppearsOnce once = new ElementThatAppearsOnce(new int[]{6,6,6,5,5,5,2});
         System.out.println(once.getSingle2());
     }
 }
