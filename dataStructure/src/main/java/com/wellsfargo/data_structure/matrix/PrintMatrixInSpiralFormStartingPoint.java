@@ -51,7 +51,7 @@ public class PrintMatrixInSpiralFormStartingPoint {
                 {4, 5, 6},
                 {7, 8, 9}};
 
-        PrintMatrixInSpiralFormStartingPoint inSpiralFormStartingPoint =new PrintMatrixInSpiralFormStartingPoint(mat,0,2);
+        PrintMatrixInSpiralFormStartingPoint inSpiralFormStartingPoint =new PrintMatrixInSpiralFormStartingPoint(mat,0,0);
         inSpiralFormStartingPoint.printSpiral();
     }
 }

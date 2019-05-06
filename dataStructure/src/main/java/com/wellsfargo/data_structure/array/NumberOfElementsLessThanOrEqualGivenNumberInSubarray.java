@@ -75,6 +75,7 @@ public class NumberOfElementsLessThanOrEqualGivenNumberInSubarray {
         int ans[] =new int[queries.length];
         // looping through each Query
         Arrays.sort(queries ,QueryComparator() );
+        Arrays.sort(arr ,ArrayComparator() );
         for (int i=0; i<queries.length; i++) {
             // traversing the array values till it is less than equal to Query number
             while ( curr<n && arr[curr].val <= queries[i].x ) {
@@ -94,17 +95,20 @@ public class NumberOfElementsLessThanOrEqualGivenNumberInSubarray {
 
     public static void main(String[] args) {
         // size of array
-        int n = 4;
         // initialising array value and index
-        ArrayElement arr[] =new ArrayElement[4];
-        arr[0] = new ArrayElement(2,0);
-        arr[1] = new ArrayElement(3,1);
-        arr[2] = new ArrayElement(2,4);
+        ArrayElement arr[] =new ArrayElement[8];
+        arr[0] = new ArrayElement(1,0);
+        arr[1] = new ArrayElement(7,1);
+        arr[2] = new ArrayElement(8,2);
         arr[3] = new ArrayElement(5,3);
-        int q = 2;
-        Query queries[] =new Query[2];
-        queries[0] = new Query(0,2,2,0);
-        queries[1] = new Query(0,3,5,1);
+        arr[4] = new ArrayElement(6,4);
+        arr[5] = new ArrayElement(2,5);
+        arr[6] = new ArrayElement(15,6);
+        arr[7] = new ArrayElement(4,7);
+        Query queries[] =new Query[3];
+        queries[0] = new Query(0,4,5,0);
+        queries[1] = new Query(0,2,7,1);
+        queries[2] = new Query(2,6,8,2);
 
         NumberOfElementsLessThanOrEqualGivenNumberInSubarray inSubarray =new NumberOfElementsLessThanOrEqualGivenNumberInSubarray(queries,arr);
         inSubarray.answerQuery();

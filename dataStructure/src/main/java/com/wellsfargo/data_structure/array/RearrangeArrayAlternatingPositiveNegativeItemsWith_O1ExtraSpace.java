@@ -38,6 +38,14 @@ public class RearrangeArrayAlternatingPositiveNegativeItemsWith_O1ExtraSpace {
                     outofplace = index;
             }
         }
+        printArray();
+    }
+
+    void printArray()
+    {
+        for (int i = 0; i < arr.length; i++)
+            System.out.print(arr[i] + " ");
+        System.out.println("");
     }
 
     void rightrotate(int arr[], int n, int outofplace, int cur) {
@@ -45,5 +53,11 @@ public class RearrangeArrayAlternatingPositiveNegativeItemsWith_O1ExtraSpace {
         for (int i = cur; i > outofplace; i--)
             arr[i] = arr[i - 1];
         arr[outofplace] = tmp;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {-5, 3, 4, 5, -6, -2, 8, 9, -1, -4};
+        RearrangeArrayAlternatingPositiveNegativeItemsWith_O1ExtraSpace itemsWith_o1ExtraSpace =new RearrangeArrayAlternatingPositiveNegativeItemsWith_O1ExtraSpace(arr);
+        itemsWith_o1ExtraSpace.rearrange();
     }
 }

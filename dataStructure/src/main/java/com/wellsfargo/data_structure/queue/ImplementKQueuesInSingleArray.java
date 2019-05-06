@@ -81,9 +81,12 @@ public class ImplementKQueuesInSingleArray {
     }
 
     public static void main(String[] args) {
-        ImplementKQueuesInSingleArray queues =new ImplementKQueuesInSingleArray(3,10);
-        queues.enqueue(10 ,1);
-        queues.enqueue(20 ,2);
+        ImplementKQueuesInSingleArray queues =new ImplementKQueuesInSingleArray(10,3);
+        queues.enqueue(10 ,0);
+        queues.enqueue(30 ,0);
+        queues.enqueue(40 ,1);
+        queues.enqueue(50 ,1);
+        /*queues.enqueue(20 ,2);
         queues.enqueue(30 ,1);
         queues.enqueue(40 ,2);
         queues.enqueue(50 ,1);
@@ -91,6 +94,6 @@ public class ImplementKQueuesInSingleArray {
         queues.enqueue(70 ,1);
         queues.enqueue(80 ,1);
         queues.enqueue(90 ,3);
-        queues.enqueue(100 ,3);
+        queues.enqueue(100 ,3);*/
     }
 }
