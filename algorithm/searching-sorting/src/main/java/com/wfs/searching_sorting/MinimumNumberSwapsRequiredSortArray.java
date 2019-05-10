@@ -14,6 +14,24 @@ public class MinimumNumberSwapsRequiredSortArray {
         this.arr = arr;
     }
 
+    static class Pair<K,V>{
+        private K k ;
+        private V v ;
+
+        public Pair(K k, V v) {
+            this.k = k;
+            this.v = v;
+        }
+
+        public K getK() {
+            return k;
+        }
+
+        public V getV() {
+            return v;
+        }
+    }
+
     public int minSwap(){
         int n = arr.length;
         // Create two arrays and use as pairs where first  array is element and second array is position of first element
@@ -24,7 +42,7 @@ public class MinimumNumberSwapsRequiredSortArray {
         arrpos.sort(new Comparator<Pair<Integer, Integer>>() {
             @Override
             public int compare(Pair<Integer, Integer> o1, Pair<Integer, Integer> o2) {
-                if (o1.getK() > o2.getK())
+                if (o1.getK() < o2.getK())
                     return -1;
                     // We can change this to make it then look at the words alphabetical order
                 else if (o1.getK().equals(o2.getK()))
@@ -56,32 +74,13 @@ public class MinimumNumberSwapsRequiredSortArray {
                 ans += (cycle_size - 1);
             }
         }
-        // Return result
         return ans;
     }
 
     public static void main(String[] args) {
-        int []a = {2,4,3,5,1};
+        int []a = {1, 5, 4, 3, 2};
         MinimumNumberSwapsRequiredSortArray requiredSortArray =new MinimumNumberSwapsRequiredSortArray(a);
-        System.out.println(2 ^ (5));
-    }
-
-    static class Pair<K,V>{
-        private K k ;
-        private V v ;
-
-        public Pair(K k, V v) {
-            this.k = k;
-            this.v = v;
-        }
-
-        public K getK() {
-            return k;
-        }
-
-        public V getV() {
-            return v;
-        }
+        System.out.println(requiredSortArray.minSwap());
     }
 }
 
