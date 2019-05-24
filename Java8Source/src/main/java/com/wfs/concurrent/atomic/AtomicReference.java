@@ -77,21 +77,21 @@ public class AtomicReference<V> implements java.io.Serializable {
     }
 
     /**
-     * Gets the current value.
-     *
-     * @return the current value
-     */
-    public final V get() {
-        return value;
-    }
-
-    /**
      * Sets to the given value.
      *
      * @param newValue the new value
      */
     public final void set(V newValue) {
         value = newValue;
+    }
+
+    /**
+     * Gets the current value.
+     *
+     * @return the current value
+     */
+    public final V get() {
+        return value;
     }
 
     /**

@@ -110,7 +110,7 @@ public class Huffman_Coding {
     }
 
     public static void main(String[] args) {
-        String str ="I am good boy, I am Ram, IIIIIIIIIIIIIIIIIIIIIIII am Ram";
+        String str ="geeksforgeeks";
         Huffman_Coding coding =new Huffman_Coding(str);
         for(Map.Entry<String,String> entry : coding.getHuffmanEncoding().entrySet()){
             System.out.println(entry.getKey() +"\t"+entry.getValue());

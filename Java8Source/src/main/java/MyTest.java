@@ -1,8 +1,11 @@
 import com.wfs.util.HashMap;
 
+import java.util.Collections;
+
 public class MyTest {
 
 	public static void main(String[] args) {
+		Collections
 		HashMap<Account, String> map =new HashMap<>();
 		map.put(new Account(1, "SS1", 10000) ,"A");
 		map.put(new Account(2, "SS2", 10000) ,"C");

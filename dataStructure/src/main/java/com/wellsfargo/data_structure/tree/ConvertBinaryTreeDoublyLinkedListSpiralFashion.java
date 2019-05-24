@@ -1,10 +1,13 @@
+/*
 package com.wellsfargo.data_structure.tree;
 
 import java.util.Stack;
 
+*/
 /**
  * @author Siddhanta Kumar Pattnaik
- */
+ *//*
+
 public class ConvertBinaryTreeDoublyLinkedListSpiralFashion {
 
     private Node root, head , tail;
@@ -66,7 +69,7 @@ public class ConvertBinaryTreeDoublyLinkedListSpiralFashion {
         Node n1 =new Node(n);
 
         if(head ==null){
-            head =tail =n1;
+            head =tail =lon1;
         }else{
             tail.right=n1;
             n1.left =tail ;
@@ -95,3 +98,4 @@ public class ConvertBinaryTreeDoublyLinkedListSpiralFashion {
     }
 }
 
+*/
