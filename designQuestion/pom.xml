@@ -12,5 +12,11 @@
     <packaging>pom</packaging>
 
 
+    <modules>
+        <module>base64EncodingDecoding</module>
+        <module>bloomFilter</module>
+        <module>consistentHashing</module>
+        <module>parking-lot</module>
+    </modules>
 
 </project>
