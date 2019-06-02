@@ -230,7 +230,7 @@ public class ForkJoinPool extends AbstractExecutorService {
      *        (CAS slot to null))
      *           increment base and return task;
      *
-     * Because we rely on CASes of references, we do not need tag bits
+     * Because we rely on CASes of references, we do not need repo bits
      * on base or top.  They are simple ints as used in any circular
      * array-based queue (see for example ArrayDeque).  Updates to the
      * indices guarantee that top == base means the queue is empty,
@@ -820,7 +820,7 @@ public class ForkJoinPool extends AbstractExecutorService {
          * Returns an exportable index (used by ForkJoinWorkerThread).
          */
         final int getPoolIndex() {
-            return (config & 0xffff) >>> 1; // ignore odd/even tag bit
+            return (config & 0xffff) >>> 1; // ignore odd/even repo bit
         }
 
         /**

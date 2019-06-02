@@ -7,7 +7,7 @@ public class CreditCardPaymentStatergy implements PaymentStatergy{
 	@Override
 	public PaymentStatus proceed(double amount) {
 		// TODO Auto-generated method stub
-		return null;
+		return PaymentStatus.SUCCESS;
 	}
 
 }

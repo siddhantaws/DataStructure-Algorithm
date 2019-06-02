@@ -1,8 +1,11 @@
+/*
 package com.wfs.devideConqur;
 
+*/
 /**
  * @author Siddhanta Kumar Pattnaik
- */
+ *//*
+
 public class KThElementTwoSortedArrays {
     private int arr1[];
 
@@ -68,9 +71,10 @@ public class KThElementTwoSortedArrays {
         }
         else {
             // Now we need to find only k-i th element since we have found out the lowest i
-            return kth(arr1 + i, m - i, arr2, n, k - i);
+            return getKthHighestLogK(arr1 + i, m - i, arr2, n, k - i);
         }
 
     }
 }
 
+*/

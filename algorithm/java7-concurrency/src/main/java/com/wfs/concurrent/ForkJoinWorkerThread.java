@@ -85,7 +85,7 @@ public class ForkJoinWorkerThread extends Thread {
      * ("queueBase" and "queueTop") to the slots themselves (mainly
      * via method "casSlotNull()"). So, both a successful pop and deq
      * mainly entail a CAS of a slot from non-null to null.  Because
-     * we rely on CASes of references, we do not need tag bits on
+     * we rely on CASes of references, we do not need repo bits on
      * queueBase or queueTop.  They are simple ints as used in any
      * circular array-based queue (see for example ArrayDeque).
      * Updates to the indices must still be ordered in a way that

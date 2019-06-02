@@ -6,8 +6,7 @@ public class NetbankingPaymentStatergy implements PaymentStatergy {
 
 	@Override
 	public PaymentStatus proceed(double amount) {
-		// TODO Auto-generated method stub
-		return null;
+		return PaymentStatus.SUCCESS;
 	}
 
 }

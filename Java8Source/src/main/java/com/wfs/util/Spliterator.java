@@ -177,7 +177,7 @@ import java.util.function.LongConsumer;
  *
  * <p><b>Example.</b> Here is a class (not a very useful one, except
  * for illustration) that maintains an array in which the actual data
- * are held in even locations, and unrelated tag data are held in odd
+ * are held in even locations, and unrelated repo data are held in odd
  * locations. Its Spliterator ignores the tags.
  *
  * <pre> {@code

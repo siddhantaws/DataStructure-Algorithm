@@ -17,6 +17,9 @@
         <module>bloomFilter</module>
         <module>consistentHashing</module>
         <module>parking-lot</module>
+        <module>amazon-shopping-system</module>
+        <module>stackOverFlow</module>
+        <module>movie-ticket-booking-system</module>
     </modules>
 
 </project>

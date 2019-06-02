@@ -1294,12 +1294,12 @@ public abstract class ForkJoinTask<V> implements Future<V>, Serializable {
             null;
     }
 
-    // tag operations
+    // repo operations
 
     /**
-     * Returns the tag for this task.
+     * Returns the repo for this task.
      *
-     * @return the tag for this task
+     * @return the repo for this task
      * @since 1.8
      */
     public final short getForkJoinTaskTag() {
@@ -1307,10 +1307,10 @@ public abstract class ForkJoinTask<V> implements Future<V>, Serializable {
     }
 
     /**
-     * Atomically sets the tag value for this task.
+     * Atomically sets the repo value for this task.
      *
-     * @param tag the tag value
-     * @return the previous value of the tag
+     * @param tag the repo value
+     * @return the previous value of the repo
      * @since 1.8
      */
     public final short setForkJoinTaskTag(short tag) {
@@ -1322,17 +1322,17 @@ public abstract class ForkJoinTask<V> implements Future<V>, Serializable {
     }
 
     /**
-     * Atomically conditionally sets the tag value for this task.
+     * Atomically conditionally sets the repo value for this task.
      * Among other applications, tags can be used as visit markers
      * in tasks operating on graphs, as in methods that check: {@code
      * if (task.compareAndSetForkJoinTaskTag((short)0, (short)1))}
      * before processing, otherwise exiting because the node has
      * already been visited.
      *
-     * @param e the expected tag value
-     * @param tag the new tag value
+     * @param e the expected repo value
+     * @param tag the new repo value
      * @return {@code true} if successful; i.e., the current value was
-     * equal to e and is now tag.
+     * equal to e and is now repo.
      * @since 1.8
      */
     public final boolean compareAndSetForkJoinTaskTag(short e, short tag) {
