@@ -1,80 +1,89 @@
-/*
+
 package com.wfs.devideConqur;
 
-import java.util.ArrayList;
-import java.util.List;
 
-*/
 /**
  * @author Siddhanta Kumar Pattnaik
- *//*
+ *
+ * */
 
 public class KthSmallestSumContinuousSubarraysPositiveNumbers {
-
-    private int arr[];
-
+    private int a[];
     private int k;
 
     public KthSmallestSumContinuousSubarraysPositiveNumbers(int[] arr, int k) {
-        this.arr = arr;
+        this.a = arr;
         this.k = k;
     }
 
-    int CalculateRank(List<Integer> prefix, int n, int x) {
-        int cnt;
+    private int kthSmallestSumContinuousSubarrays() {
+        int prefix[] = new int[a.length];
+        prefix[0] = a[0];
+        for (int i = 1; i < a.length; i++)
+            prefix[i] = prefix[i - 1] + a[i];
 
-        // Initially rank is 0.
+        int maxSum = prefix[a.length - 1];
+        int start = 0;
+        int end = maxSum;
+        int ans = 0;
+        while (start <= end) {
+            int mid = (start + end) >> 1;
+
+            if (rank(prefix, mid) >= k) {
+                ans = mid;
+                end = mid - 1;
+            } else start = mid + 1;
+        }
+        return ans;
+    }
+
+    private static int rank(int[] prefix, int mid) {
+        int sumBeforeIthIndex = 0;
         int rank = 0;
-        int sumBeforeIthindex = 0;
-        for (int i = 0; i < n; ++i) {
-
-            // Calculating the count the subarray with
-            // starting at ith index
-            cnt = upper_bound(prefix.begin(), prefix.end(),
-                    sumBeforeIthindex + x) - prefix.begin();
-
-            // Subtracting the subarrays before ith index.
-            cnt -= i;
-
-            // Adding the count to rank.
-            rank += cnt;
-            sumBeforeIthindex = prefix[i];
+        int count = 0;
+        for (int i = 0; i < prefix.length; i++) {
+            count = upperBound(prefix, sumBeforeIthIndex + mid);
+            count -= i;
+            rank += count;
+            sumBeforeIthIndex = prefix[i];
         }
         return rank;
     }
 
-    int findKthSmallestSum(int a[], int n, int k) {
-        // PrefixSum array.
-        List<Integer> prefix = new ArrayList<>();
-
-        // Total Sum initially 0.
-        int sum = 0;
-        for (int i = 0; i < n; ++i) {
-            sum += a[i];
-            prefix.add(sum);
-        }
-
-        // Binary search on possible
-        // range i.e [0, total sum]
-        int ans = 0;
-        int start = 0, end = sum;
+    /**
+     * Return the index of element which is greater then <x> if found
+     * otherwise array length.
+     *
+     * @param prefix
+     * @param x
+     * @return
+     */
+    private static int upperBound(int prefix[], int x) {
+        int start = 0;
+        int end = prefix.length - 1;
+        int ans = -1;
         while (start <= end) {
-
             int mid = (start + end) >> 1;
+            if (prefix[mid] == x) {
+                ans = mid + 1;
+                break;
+            }
 
-            // Calculating rank of the mid and
-            // comparing with K
-            if (CalculateRank(prefix, n, mid) >= k) {
-
-                // If greater or equal store the answer
+            if (prefix[mid] > x) {
                 ans = mid;
                 end = mid - 1;
-            } else {
+            } else
                 start = mid + 1;
-            }
-        }
 
-        return ans;
+        }
+        return ans == -1 ? prefix.length : ans;
+    }
+
+    public static void main(String args[]) {
+        KthSmallestSumContinuousSubarraysPositiveNumbers positiveNumbers =new KthSmallestSumContinuousSubarraysPositiveNumbers(new int[] {1, 2, 3, 4, 5, 6}, 3);
+        System.out.println(positiveNumbers.kthSmallestSumContinuousSubarrays());
+       // System.out.println(positiveNumbers.kthSmallestSumContinuousSubarrays());
+
     }
 }
-*/
+
