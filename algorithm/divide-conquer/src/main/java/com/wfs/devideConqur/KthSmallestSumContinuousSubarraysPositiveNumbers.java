@@ -83,6 +83,7 @@ public class KthSmallestSumContinuousSubarraysPositiveNumbers {
         KthSmallestSumContinuousSubarraysPositiveNumbers positiveNumbers =new KthSmallestSumContinuousSubarraysPositiveNumbers(new int[] {1, 2, 3, 4, 5, 6}, 3);
         System.out.println(positiveNumbers.kthSmallestSumContinuousSubarrays());
        // System.out.println(positiveNumbers.kthSmallestSumContinuousSubarrays());
+        System.out.println(upperBound(new int[]{1,2,4,6,10,15}, 7));
 
     }
 }

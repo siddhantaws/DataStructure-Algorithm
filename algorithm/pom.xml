@@ -21,6 +21,8 @@
   <modules>
   	<module>mathematical-algorithm</module>
   	<module>back-tracking</module>
+	<module>orderStatistics</module>
+	<module>array-arrangement</module>
   	<module>bit-algorithm</module>
 	<module>branch-bound</module>
 	<module>divide-conquer</module>
@@ -32,6 +34,7 @@
 	<module>searching-sorting</module>
 	<module>graph-algorithms</module>
 	<module>range-query</module>
+	<module>orderStatistics</module>
     <!--<module>java7-concurrency</module>-->
   </modules>
   
