@@ -25,7 +25,7 @@ public class SuffixArray {
 
         @Override
         public String toString() {
-            return suffix.substring(index);
+            return suffix.substring(index)+" index->"+index +" Rank[0]"+rank[0]+" Rank[1]"+rank[1];
         }
     }
 

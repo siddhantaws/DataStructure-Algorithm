@@ -9,7 +9,7 @@ import java.util.Map;
 public class Base64EncodingDecoding {
 
     String base62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    Long counter = 1L;
+    Long counter = 434L;
     Map<Long, String> indexToUrl = new HashMap<>();
     Map<String, Long> urlToIndex = new HashMap<String, Long>();
 
@@ -49,7 +49,9 @@ public class Base64EncodingDecoding {
     }
 
     public static void main(String[] args) {
-
+        Base64EncodingDecoding decoding =new Base64EncodingDecoding();
+        System.out.println(decoding.encode("http://tinyurl.com/AAAAAAAAAAAAAAA"));
+        System.out.println(decoding.decode("000070"));
     }
 
 }
