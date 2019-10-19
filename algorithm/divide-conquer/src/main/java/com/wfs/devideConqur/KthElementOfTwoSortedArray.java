@@ -20,25 +20,36 @@ public class KthElementOfTwoSortedArray {
     }
 
     private int getNumber(int start1, int end1 , int start2, int end2, int k ){
-
-        int mid1 = start1 + (end1-start1)/2;
-        int mid2 = start2 + (end2-start2)/2;
-        if(mid1+mid2 < k ){
-            if(mid1 > mid2)
-                getNumber(start1 , end1 , start2+mid2, end2 ,k-mid2);
+        if(end1==arr1.length-1 && end1==start1)
+            return arr2[start2+k-2];
+        if(end2==arr2.length-1&& end2==start2)
+            return arr1[start1+k-2];
+        if(k==0){
+            if(start1>0 && start2>0)
+                return Math.max(arr1[start1-1], arr2[start2-1]);
+            else if(start1==0)
+                return arr2[start2-1];
             else
-                getNumber(start1+mid1 , end1 , start2, end2 ,k-mid1);
-        }else {
-            if(mid1 > mid2)
-                getNumber(start1 , mid1 , start2+mid2, mid2 ,k-mid2);
-            else
-                getNumber(start1+mid1 , mid1 , start2, mid2 ,k-mid1);
+                return arr1[start1-1];
         }
-        return 1;
-    }
 
+        int mid1 = start1 + (end1-start1)/2; int len1= (end1-start1)+1;
+        int mid2 = start2 + (end2-start2)/2; int len2= (end2-start2)+1;
+        if(len1+len2 < k ){
+            if(arr1[mid1] > arr2[mid2])
+                return  getNumber(start1 , end1 , start2+(mid2-start2)+1, end2 ,k-(mid2-start2)-1);
+            else
+                return  getNumber(start1+(mid1-start1)+1 , end1 , start2, end2 ,k-(mid1-start1)-1);
+        }else {
+            if(arr1[mid1] > arr2[mid2])
+                return  getNumber(start1 , end1 , start2+(mid2-start2)+1, end2 ,k-(mid2-start2)-1);
+            else
+                return  getNumber(start1+(mid1-start1)+1 , end1 , start2, end2 ,k-(mid1-start1)-1);
+        }
+    }
+    //1 2 3 4 6 7 8 9 10
     public static void main(String[] args) {
-        KthElementOfTwoSortedArray  element =new KthElementOfTwoSortedArray(new int[]{2 , 3 ,6, 7,9},new int[]{1 ,4 ,8 ,10} , 5);
+        KthElementOfTwoSortedArray  element =new KthElementOfTwoSortedArray(new int[]{2 , 3 ,6, 7,9},new int[]{1 ,4 ,8 ,10} , 1);
         System.out.println(element.getNumber(0,element.arr1.length-1, 0 ,element.arr2.length-1 , element.k));
     }
 }

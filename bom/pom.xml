@@ -12,6 +12,8 @@
 		<module>../dataStructure</module>
 		<module>../Java8Source</module>
 		<module>../designQuestion</module>
+		<module>../interview-question</module>
+		<module>../design-Pattern</module>
 	</modules>
 
 	<properties>

@@ -12,13 +12,28 @@ public class SearchInARowWiseAndColumnWiseSorted2DArray {
           search(key, 0 ,matrix[0].length-1 , 0 ,matrix.length-1);
     }
 
+    public void search1(int key){
+        int i=0;int j=matrix[0].length-1;
+        while(i<matrix.length && j>=0){
+            if(matrix[i][j]==key){
+                System.out.println("Element Found "+ i +" "+j);
+                break;
+            }
+            else if(matrix[i][j]>key)
+                j--;
+            else
+                i++;
+        }
+    }
+
+
     private void search(int key, int fromRow , int toRow , int fromCol , int toCol ) {
 
         // Find middle and compare with middle
         int i = fromRow + (toRow - fromRow) / 2;
         int j = fromCol + (toCol - fromCol) / 2;
         if (matrix[i][j] == key){
-            System.out.println("Point Found");
+            System.out.println("Point Found"+ i +" "+ j);
             return ;
         }
         else {
@@ -31,7 +46,7 @@ public class SearchInARowWiseAndColumnWiseSorted2DArray {
             // So just check second element
             if (fromRow == toRow && fromCol + 1 == toCol)
                 if (matrix[fromRow][toCol] == key){
-                    System.out.println("Point Found");
+                    System.out.println("Point Found" + fromRow +" "+ toCol);
                     return ;
                 }
 
