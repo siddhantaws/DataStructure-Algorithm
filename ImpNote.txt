@@ -11,5 +11,28 @@ Tree
 
 
 
-Heap
-----
+
+Matrix
+https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
+https://www.geeksforgeeks.org/sorting-rows-matrix-ascending-order-followed-sorting-columns-descending-order/
+https://www.geeksforgeeks.org/find-number-of-islands/
+https://www.geeksforgeeks.org/count-sub-matrices-sum-divisible-k/
+https://www.geeksforgeeks.org/minimum-operations-required-make-row-column-matrix-equals/
+https://www.geeksforgeeks.org/number-cells-queen-can-move-obstacles-chessborad/
+https://www.geeksforgeeks.org/find-rectangles-filled-0/
+https://www.geeksforgeeks.org/find-rectangle-binary-matrix-corners-1/
+https://www.geeksforgeeks.org/possible-moves-knight/
+https://www.geeksforgeeks.org/print-matrix-snake-pattern/
+https://www.geeksforgeeks.org/construct-ancestor-matrix-from-a-given-binary-tree/
+https://www.geeksforgeeks.org/construct-tree-from-ancestor-matrix/
+https://www.geeksforgeeks.org/program-sudoku-generator/
+https://www.geeksforgeeks.org/maximum-sum-rectangle-in-a-2d-matrix-dp-27/
+https://www.youtube.com/watch?v=vi_1eHCsR9A&list=PLrmLmBdmIlpsHaNTPP_jHHDx_os9ItYXr&index=42&t=406s
+https://www.youtube.com/watch?v=PwDqpOMwg6U&list=PLrmLmBdmIlpsHaNTPP_jHHDx_os9ItYXr&index=41&t=778s
+https://www.youtube.com/watch?v=GO5QHC_BmvM&list=PLrmLmBdmIlpsHaNTPP_jHHDx_os9ItYXr&index=37&t=0s
+https://www.geeksforgeeks.org/return-previous-element-in-an-expanding-matrix/
+
+
+Similar Question
+https://www.geeksforgeeks.org/find-maximum-value-of-absi-j-minarri-arrj-in-an-array-arr/
+https://leetcode.com/discuss/interview-question/355698
