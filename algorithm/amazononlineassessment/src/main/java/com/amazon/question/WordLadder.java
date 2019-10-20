@@ -16,29 +16,33 @@ public class WordLadder {
     public int getNumberOfWordNeedToConvert(){
         Set<String> dictionaryOfWord =new HashSet<>(dictionary);
         int result=0;
+        if(!dictionaryOfWord.contains(destination))
+            return result;
         Queue<String> queue =new LinkedList<>();
         queue.add(source);
-        result++;
         while (!queue.isEmpty()){
-            String str =queue.poll();
-            if(str.equals(destination))
-                return result+1;
-            char chArray[]=str.toCharArray();
-
-            for(int i=0;i<chArray.length;i++){
-                for(int j=0;j<26;j++){
+            int N= queue.size();
+            for(int k=0;k<N;k++){
+                String str =queue.poll();
+                if(str.equals(destination))
+                    return result+1;
+                char chArray[]=str.toCharArray();
+                for(int i=0;i<chArray.length;i++){
                     char ch1=chArray[i];
-                    chArray[i]= (char)('a'+j);
-                    String s1= new String(chArray);
-                    if(dictionaryOfWord.contains(s1) && !s1.equals(str)){
-                        queue.offer(s1);
-                        dictionaryOfWord.remove(s1);
+                    for(int j=0;j<26;j++){
+                        chArray[i]= (char)('a'+j);
+                        String s1= new String(chArray);
+                        if(dictionaryOfWord.contains(s1) && !s1.equals(str)){
+                            queue.offer(s1);
+                            dictionaryOfWord.remove(s1);
+                        }
                     }
+                    chArray[i]=ch1;
                 }
             }
             result++;
         }
-        return result;
+        return 0;
     }
 
     public static void main(String[] args) {
