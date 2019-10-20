@@ -12,8 +12,4 @@
     <packaging>pom</packaging>
 
 
-    <modules>
-        <module>amazon</module>
-    </modules>
-
 </project>
