@@ -34,10 +34,8 @@
 	<module>searching-sorting</module>
 	<module>graph-algorithms</module>
 	<module>range-query</module>
-	<module>orderStatistics</module>
-    <!--<module>java7-concurrency</module>-->
-	  <module>two-pointer</module>
-	  <module>amazononlineassessment</module>
+	<module>two-pointer</module>
+	<module>amazononlineassessment</module>
   </modules>
   
 </project>
