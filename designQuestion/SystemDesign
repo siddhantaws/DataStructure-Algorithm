@@ -41,3 +41,45 @@ https://www.geeksforgeeks.org/differences-between-tcp-and-udp/
 4)Distributed Systems Architectural Patterns 
 https://www.youtube.com/watch?v=tpspO9K28PM
 
+
+
+Event Driven Architecture
+https://www.youtube.com/watch?v=XohG9yQe3Ps
+
+
+Rate Limiter
+https://www.youtube.com/watch?v=mhUQe4BKZXs&t=1189s
+https://www.youtube.com/watch?v=FU4WlwfS3G0
+http://highscalability.com/blog/2012/4/17/youtube-strategy-adding-jitter-isnt-a-bug.html
+https://www.ably.io/blog/distributed-rate-limiting-scale-your-platform?gi=4024cdfafaf1
+
+Tiny URl
+https://www.youtube.com/watch?v=JQDHz72OA3c
+https://www.youtube.com/watch?v=fMZMm_0ZhK4
+https://www.educative.io/courses/grokking-the-system-design-interview/m2ygV4E81AR
+
+Distributed Message Queue
+https://www.youtube.com/watch?v=iJLL-KPqBpM
+https://www.freecodecamp.org/news/a-dummys-guide-to-distributed-queues-2cd358d83780/
+https://www.youtube.com/watch?v=TeC7FD8wrRQ&list=UUyaZFIEP_DPYFiGq8SqWedg&index=25
+https://www.youtube.com/watch?v=XndpZCyRIXw&list=UUyaZFIEP_DPYFiGq8SqWedg&index=22
+https://blog.usejournal.com/a-futuristic-view-of-building-distributed-systems-with-messaging-560d0652513a
+
+Notification Service
+https://www.youtube.com/watch?v=bBTPZ9NdSk8
+https://www.youtube.com/watch?v=_63IA-Ly0gY
+
+Count Min Sketch
+https://www.youtube.com/watch?v=kx-XDoPjoHw
+https://www.youtube.com/watch?v=ibxXO-b14j4
+https://github.com/FreemanZhang/system-design/blob/master/topk.md
+https://leetcode.com/discuss/interview-question/system-design/124702/design-a-service-to-calculate-the-top-k-listened-songs-in-past-24-hours
+
+
+Distributed Cache
+https://www.youtube.com/watch?v=UH7wkvcf0ys&t=1233s
+https://www.youtube.com/watch?v=iuqZvajTOyA
+https://study.com/academy/lesson/how-distributed-cache-works-design-architecture.html
+
+
+
