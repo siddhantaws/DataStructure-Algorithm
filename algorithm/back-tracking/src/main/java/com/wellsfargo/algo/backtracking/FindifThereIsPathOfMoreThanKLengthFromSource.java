@@ -21,25 +21,24 @@ public class FindifThereIsPathOfMoreThanKLengthFromSource {
     }
 
     public boolean isPathExistMoreThanK(){
-        return isPathExistMoreThanK("0" ,K );
+        return isPathExistMoreThanK("0" ,0 );
     }
 
     private boolean isPathExistMoreThanK(String v , int k){
         if(k<0)
             return false;
-
         if(k>K)
             return true;
-
-        /*for(Graph.Edge<String> edges : graph.getVertex(v).getEdges()){
-            if();
-            String newV = vertexAdc.toString();
-            Integer weight = vertexAdc.getDegree();
-            if(paths.contains(newV))
+        for(Graph.Edge<String> edges :graph.getAllEdges()){
+             if(paths.contains(edges.getVertex2().getData()) || edges.getVertex2().getData().equals(v))
                 continue;
-
-            paths.add(newV);
-        }*/
+             String nextVertex =edges.getVertex2().getData();
+            paths.add(nextVertex);
+             if(isPathExistMoreThanK(nextVertex , k+edges.getWeight()))
+                 return true;
+             else
+                 paths.remove(nextVertex);
+        }
         return  false;
     }
 
