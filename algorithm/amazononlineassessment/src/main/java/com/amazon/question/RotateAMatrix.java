@@ -31,9 +31,9 @@ public class RotateAMatrix {
         System.out.println("Before Rotate");
         print();
         for(int i=0;i<N;i++)
-            for(int j=N-i-1;j>=i;j--){
-                int temp      =  arr[i][N-j-1];
-                arr[i][N-j-1] = arr[N-j-1][i];
+            for(int j=i;j<N-i-1;j++){
+               int temp = arr[i][j] ;
+                arr[i][j] = arr[N-j-1][i];
                 arr[N-j-1][i] = arr[N-i-1][N-j-1];
                 arr[N-i-1][N-j-1] = arr[j][N-i-1];
                 arr[j][N-i-1] = temp;
