@@ -36,6 +36,7 @@
 	<module>range-query</module>
 	<module>two-pointer</module>
 	<module>amazononlineassessment</module>
+	<module>googleQuestion</module>
   </modules>
   
 </project>
