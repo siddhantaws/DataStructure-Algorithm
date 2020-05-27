@@ -1,6 +1,8 @@
 package com.wfs.dynamicprogramming;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Suryasnata on 5/16/2017.
@@ -52,9 +54,32 @@ public class CoinChange
        return null;
    }
 
+    private int getTotalCoin(){
+        return totalCoinNeededTopDown(totalSum , new HashMap<>());
+    }
+
+   private int totalCoinNeededTopDown(int totalSum , Map<Integer,Integer> totalSum2CoinMap){
+        if(totalSum==0)
+            return 0;
+        int minNumberOfCoin = Integer.MAX_VALUE;
+        if (totalSum2CoinMap.containsKey(totalSum))
+            return totalSum2CoinMap.get(totalSum);
+
+        for(int i=0;i<coinArr.length;i++){
+            if (totalSum<coinArr[i])
+                continue;
+            int totalCoin=0;
+            minNumberOfCoin= Math.min(minNumberOfCoin , (totalCoin = totalCoinNeededTopDown(totalSum-coinArr[i] , totalSum2CoinMap) )== Integer.MAX_VALUE ? 0 : totalCoin+1);
+        }
+        if (minNumberOfCoin!=Integer.MAX_VALUE)
+            totalSum2CoinMap.put(totalSum,minNumberOfCoin);
+        return minNumberOfCoin;
+   }
+
+
     public static void main(String[] args) {
-        CoinChange coinChange  =new CoinChange(new int[]{7,2,3,6} , 13);
-        coinChange.getMinCoins();
+        CoinChange coinChange  =new CoinChange(new int[]{7,6} , 13);
+        System.out.println(coinChange.getTotalCoin());
     }
 
 }

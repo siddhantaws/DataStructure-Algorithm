@@ -31,6 +31,23 @@ public class LongestPalindromicSubsequence {
         return getString();
     }
 
+    public int getPalimdromicSubsequenceRecur(int i, int j) {
+        if (i>j)
+            return 0;
+        if (i==j)
+            return 0;
+        if(i==j+1 && inputString[i]==inputString[j])
+            return 2;
+        if (resultArray[i][j]!=0)
+            return resultArray[i][j];
+        resultArray[i][j] = Math.max(getPalimdromicSubsequenceRecur(i+1,j),getPalimdromicSubsequenceRecur(i,j-1));
+        return  resultArray[i][j];
+    }
+
+    public int getPalimdromicSubsequenceRecur() {
+        return getPalimdromicSubsequenceRecur(0,inputString.length-1);
+    }
+
     private String getString()
     {
         int i=0, j =inputString.length-1;

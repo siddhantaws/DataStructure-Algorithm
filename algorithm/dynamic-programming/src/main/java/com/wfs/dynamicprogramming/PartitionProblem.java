@@ -41,11 +41,18 @@ public class PartitionProblem {
                             part[i - arr[j-1]][j-1];
             }
         }
+        for (int i=0;i<part.length;i++){
+            System.out.println( );
+            for (int j=0;j<part[i].length;j++){
+                System.out.print(part[i][j]+"\t");
+            }
+        }
+
         return part[sum/2][n];
     }
 
     public static void main(String[] args) {
         PartitionProblem problem =new PartitionProblem(new int[]{3, 1, 1, 2, 2,1});
-        System.out.println(problem.findPartition());
+        problem.findPartition();
     }
 }

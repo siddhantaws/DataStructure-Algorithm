@@ -1,5 +1,8 @@
 package com.wfs.dynamicprogramming;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Created by Suryasnata on 5/16/2017.
  * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits (operations) required to convert ‘str1’ into ‘str2’.
@@ -19,6 +22,7 @@ public class MinimumEditDistance
     private String destiString;
 
     private int tempArr[][];
+
 
     public MinimumEditDistance(String sourceString , String destiString)
     {
@@ -45,6 +49,29 @@ public class MinimumEditDistance
         System.out.println(tempArr[tempArr.length-1][tempArr[0].length-1]);
     }
 
+
+    public int getMinEditDistanceTopDown(){
+        for(int i=0;i<tempArr.length;i++)
+            Arrays.fill(tempArr[i],-1);
+        return getMinEditDistanceTopDownRecursion(sourceString.length(),destiString.length());
+    }
+
+    private int getMinEditDistanceTopDownRecursion(int n , int m){
+        if (n==0)
+            return m;
+        if (m==0)
+            return n;
+        if (tempArr[n][m]!=-1)
+            return tempArr[n][m];
+
+        if (sourceString.charAt(n)==destiString.charAt(m))
+            return getMinEditDistanceTopDownRecursion(n-1,m-1);
+        int minValue = 1 + Math.min( Math.min(getMinEditDistanceTopDownRecursion(n-1,m) , getMinEditDistanceTopDownRecursion(n,m-1)) , getMinEditDistanceTopDownRecursion(n-1,m-1));
+        tempArr[n][m]= minValue;
+        return minValue;
+    }
+
+
     int min(int x,int y,int z)
     {
         if (x <= y && x <= z) return x;
@@ -55,7 +82,7 @@ public class MinimumEditDistance
 
     public static void main(String[] args)
     {
-        MinimumEditDistance  minimumEditDistance =new MinimumEditDistance("geek" , "gesek");
-        minimumEditDistance.getMinEditDistance();
+        MinimumEditDistance  minimumEditDistance =new MinimumEditDistance("sunday" , "saturday");
+        System.out.println(minimumEditDistance.getMinEditDistanceTopDown());
     }
 }
