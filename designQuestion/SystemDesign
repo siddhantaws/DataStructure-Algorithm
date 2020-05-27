@@ -6,6 +6,10 @@ https://www.youtube.com/watch?v=K12oQCzjPxE
 https://www.youtube.com/watch?v=zaRkONvyGr8
 https://www.youtube.com/watch?v=Y6Ev8GIlbxc
 
+Cache Ploicy
+https://github.com/ben-manes/caffeine
+http://highscalability.com/blog/2016/1/25/design-of-a-modern-cache.html
+
 
 4) Acid vs Base 
 https://www.johndcook.com/blog/2009/07/06/brewer-cap-theorem-base/
@@ -44,6 +48,8 @@ https://www.geeksforgeeks.org/differences-between-tcp-and-udp/
 https://www.youtube.com/watch?v=tpspO9K28PM
 
 
+Distributed Transaction
+https://medium.com/@ijayakantha/microservices-the-saga-pattern-for-distributed-transactions-c489d0ac0247
 
 Event Driven Architecture
 https://www.youtube.com/watch?v=XohG9yQe3Ps
@@ -82,6 +88,3 @@ Distributed Cache
 https://www.youtube.com/watch?v=UH7wkvcf0ys&t=1233s
 https://www.youtube.com/watch?v=iuqZvajTOyA
 https://study.com/academy/lesson/how-distributed-cache-works-design-architecture.html
-
-
-
