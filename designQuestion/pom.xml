@@ -20,6 +20,7 @@
         <module>amazon-shopping-system</module>
         <module>stackOverFlow</module>
         <module>movie-ticket-booking-system</module>
+        <module>airline-management-system</module>
     </modules>
 
 </project>
