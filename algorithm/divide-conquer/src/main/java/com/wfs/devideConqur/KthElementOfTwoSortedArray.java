@@ -49,7 +49,7 @@ public class KthElementOfTwoSortedArray {
     }
     //1 2 3 4 6 7 8 9 10
     public static void main(String[] args) {
-        KthElementOfTwoSortedArray  element =new KthElementOfTwoSortedArray(new int[]{2 , 3 ,6, 7,9},new int[]{1 ,4 ,8 ,10} , 1);
+        KthElementOfTwoSortedArray  element =new KthElementOfTwoSortedArray(new int[]{2 , 3 ,9,15,19},new int[]{1 ,4 ,8 ,10} , 3);
         System.out.println(element.getNumber(0,element.arr1.length-1, 0 ,element.arr2.length-1 , element.k));
     }
 }
