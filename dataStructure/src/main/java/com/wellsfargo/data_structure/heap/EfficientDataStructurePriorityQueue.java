@@ -15,12 +15,7 @@ public class EfficientDataStructurePriorityQueue<E extends  Comparable>   {
     public EfficientDataStructurePriorityQueue(int capacity) {
         this.capacity = capacity;
         this.minHeap =new PriorityQueue(capacity);
-        this.maxHeap =new PriorityQueue(capacity, new Comparator<Node>() {
-            @Override
-            public int compare(Node o1, Node o2) {
-                return o2.e.compareTo(o1.e);
-            }
-        });
+        this.maxHeap =new PriorityQueue(capacity,(Node o1, Node o2)-> o2.e.compareTo(o1.e));
     }
 
     public E add(E e){

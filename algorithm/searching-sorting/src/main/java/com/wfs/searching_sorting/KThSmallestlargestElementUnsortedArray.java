@@ -19,7 +19,7 @@ public class KThSmallestlargestElementUnsortedArray {
     }
 
     private int getKthSmallest(int start, int end) {
-        int pivot = getKthSmallest(start, end);
+        int pivot = getPivot(start, end);
         if (start + pivot < k)
             return getKthSmallest(pivot + 1, end);
         else if(start + pivot > k)
