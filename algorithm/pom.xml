@@ -37,6 +37,7 @@
 	<module>two-pointer</module>
 	<module>amazononlineassessment</module>
 	<module>googleQuestion</module>
+	<module>word-wrap</module>
   </modules>
   
 </project>
