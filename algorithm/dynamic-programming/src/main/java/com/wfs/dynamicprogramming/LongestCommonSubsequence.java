@@ -1,5 +1,8 @@
 package com.wfs.dynamicprogramming;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Suryasnata on 5/11/2017.
  * LCS for input Sequences ABCDGH and AEDFHR is ADH of length 3.
@@ -19,10 +22,16 @@ public class LongestCommonSubsequence
     {
         LongestCommonSubsequence longestCommonSubsequence =new LongestCommonSubsequence();
         System.out.println("LongestCommonSubsequence "+ longestCommonSubsequence.lcsDynamic());
+        System.out.println("LongestCommonSubsequence "+ longestCommonSubsequence.lcsDynamicTopdown());
     }
     public String lcsDynamic()
     {
         return  lcsDynamic(str1.toCharArray() , str2.toCharArray());
+    }
+
+    public int lcsDynamicTopdown()
+    {
+        return  lcsDynamicTopdown(str1.toCharArray() , str2.toCharArray());
     }
 
     public String lcsDynamic(char[] s1 ,char[] s2)
@@ -57,5 +66,24 @@ public class LongestCommonSubsequence
             }
         }
         return new String(sb.reverse());
+    }
+
+    public int lcsDynamicTopdown(char[] s1 ,char[] s2){
+        final Map<String , Integer> mapOfStringToCommonLength = new HashMap<String , Integer>();
+        return lcsDynamicTopdown(s1 ,  s1.length-1 , s2 , s2.length-1  ,mapOfStringToCommonLength );
+    }
+
+    public int lcsDynamicTopdown(char[] s1 ,int s1End , char[] s2 , int s2End , final Map<String , Integer> mapOfStringToCommonLength ){
+        if(s1End==-1 || s2End==-1)
+            return 0;
+        final String one = new String(s1 , 0 ,s1End );
+        final String two = new String(s2 , 0 ,s2End );
+        if(mapOfStringToCommonLength.containsKey(one+"$"+two))
+            return mapOfStringToCommonLength.get(one+"$"+two);
+        if(s1[s1End]==s2[s2End])
+            mapOfStringToCommonLength.put(one+"$"+two , 1+ lcsDynamicTopdown(s1, s1End-1 ,s2 ,s2End-1 , mapOfStringToCommonLength));
+        else
+            mapOfStringToCommonLength.put(one+"$"+two ,Math.max(lcsDynamicTopdown(s1, s1End-1 ,s2 ,s2End , mapOfStringToCommonLength) ,lcsDynamicTopdown(s1, s1End ,s2 ,s2End-1 , mapOfStringToCommonLength) ));
+        return mapOfStringToCommonLength.get(one+"$"+two);
     }
 }
