@@ -1,5 +1,8 @@
 package com.wfs.designquestion;
 
+import com.sun.deploy.net.HttpRequest;
+
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +57,11 @@ public class Base64EncodingDecoding {
         Base64EncodingDecoding decoding =new Base64EncodingDecoding();
         System.out.println(decoding.encode("http://tinyurl.com/AAAAAAAAAAAAAAA"));
         System.out.println(decoding.decode("000070"));
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI("https://postman-echo.com/post"))
+                .headers("Content-Type", "text/plain;charset=UTF-8")
+                .POST(HttpRequest.BodyPublishers.ofString("Sample request body"))
+                .build();
     }
 
 }
